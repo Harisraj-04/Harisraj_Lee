@@ -654,3 +654,257 @@ footer hr{
     font-size:15px;
 
 }
+/* ===========================
+   ENHANCED SECTION TITLE
+=========================== */
+
+.section-title{
+    text-align:center;
+    color:#ff2b2b;
+    margin-bottom:50px;
+    font-size:38px;
+    text-shadow:
+    0 0 10px #ff2b2b;
+}
+
+
+/* ===========================
+   ACHIEVEMENT GRID
+=========================== */
+
+.achievement-grid{
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+
+}
+
+
+.achievement-card{
+
+    background:
+    rgba(20,20,20,0.85);
+
+    border:1px solid #333;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    transition:.4s;
+
+}
+
+
+.achievement-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#ff2b2b;
+
+    box-shadow:
+    0 0 25px rgba(255,43,43,.5);
+
+}
+
+
+
+.achievement-icon{
+
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:#ff2b2b;
+
+    color:white;
+
+    font-size:22px;
+
+    box-shadow:
+    0 0 20px #ff2b2b;
+
+}
+
+
+
+.achievement-content h3{
+
+    color:white;
+
+    margin-bottom:8px;
+
+}
+
+
+.achievement-content p{
+
+    color:#ccc;
+
+    font-size:14px;
+
+}
+
+
+
+@media(max-width:768px){
+
+    .achievement-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+
+/* ===========================
+   CERTIFICATE HOVER
+=========================== */
+
+
+.gallery-card{
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+
+.gallery-card:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:
+
+    0 0 25px rgba(255,43,43,.7);
+
+}
+
+
+
+/* ===========================
+   PRIZE IMAGE SIZE
+=========================== */
+
+
+.prize-container{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+
+
+.prize-card img{
+
+    width:320px;
+
+    aspect-ratio:3/4;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+
+
+.prize-card img:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:
+
+    0 0 30px #ff2b2b;
+
+}
+
+
+
+/* ===========================
+   IMAGE LIGHTBOX POPUP
+=========================== */
+
+
+#lightbox{
+
+    display:none;
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:
+
+    rgba(0,0,0,.95);
+
+    z-index:5000;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+
+#lightbox img{
+
+    max-width:90%;
+
+    max-height:90%;
+
+    border-radius:10px;
+
+    box-shadow:
+
+    0 0 40px #ff2b2b;
+
+}
+
+
+
+#closeLightbox{
+
+    position:absolute;
+
+    top:25px;
+
+    right:40px;
+
+    font-size:45px;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
