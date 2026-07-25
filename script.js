@@ -151,4 +151,45 @@ window.addEventListener("scroll", () => {
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 
 });
+//new
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+const chars = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ<>/{}[]#$%^&*";
+const fontSize = 16;
+let columns = Math.floor(canvas.width / fontSize);
+let drops = Array(columns).fill(1);
+
+function draw(){
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle = "rgba(0,229,255,0.15)";
+    ctx.font = fontSize + "px monospace";
+
+    for(let i=0;i<drops.length;i++){
+
+        const text = chars[Math.floor(Math.random()*chars.length)];
+
+        ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+        if(drops[i]*fontSize > canvas.height && Math.random()>0.98){
+            drops[i]=0;
+        }
+
+        drops[i]++;
+
+    }
+
+}
+
+setInterval(draw,45);
 
