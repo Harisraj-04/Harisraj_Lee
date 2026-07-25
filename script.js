@@ -228,3 +228,55 @@ requestAnimationFrame(draw);
 draw();
 
 }
+// ===============================
+// Certificate Lightbox
+// ===============================
+
+const galleryLinks = document.querySelectorAll(".gallery-card a");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const closeLightbox = document.getElementById("closeLightbox");
+
+galleryLinks.forEach(link => {
+
+    link.addEventListener("click", function(e) {
+
+        e.preventDefault();
+
+        lightbox.style.display = "flex";
+        lightboxImg.src = this.href;
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+closeLightbox.addEventListener("click", () => {
+
+    lightbox.style.display = "none";
+    document.body.style.overflow = "auto";
+
+});
+
+lightbox.addEventListener("click", function(e) {
+
+    if (e.target === lightbox) {
+
+        lightbox.style.display = "none";
+        document.body.style.overflow = "auto";
+
+    }
+
+});
+
+document.addEventListener("keydown", function(e) {
+
+    if (e.key === "Escape") {
+
+        lightbox.style.display = "none";
+        document.body.style.overflow = "auto";
+
+    }
+
+});
