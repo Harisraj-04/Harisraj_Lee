@@ -129,4 +129,26 @@ topButton.addEventListener("click", () => {
 // ===============================
 
 console.log("%cWelcome to HARISRAJ G Portfolio", "color:#00e5ff;font-size:18px;font-weight:bold;");
+// ===============================
+// Auto Hide Navbar
+// ===============================
+
+let lastScrollTop = 0;
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+        // Scrolling down
+        header.style.top = "-120px";
+    } else {
+        // Scrolling up
+        header.style.top = "0";
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+});
 
