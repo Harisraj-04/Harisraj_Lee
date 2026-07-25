@@ -407,3 +407,102 @@ footer{
     position:relative;
     z-index:2;
 }
+/* ===========================
+   ACHIEVEMENT CARDS
+=========================== */
+
+.achievement-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(450px,1fr));
+
+    gap:30px;
+
+}
+
+.achievement-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    padding:30px;
+
+    background:#161b22;
+
+    border:1px solid #30363d;
+
+    border-radius:18px;
+
+    transition:.4s;
+
+}
+
+.achievement-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#ff2d2d;
+
+    box-shadow:0 0 30px rgba(255,40,40,.4);
+
+}
+
+.achievement-icon{
+
+    width:75px;
+
+    height:75px;
+
+    min-width:75px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#ff2d2d;
+
+    color:white;
+
+    font-size:28px;
+
+}
+
+.achievement-content h3{
+
+    color:#fff;
+
+    margin-bottom:8px;
+
+}
+
+.achievement-content p{
+
+    color:#bdbdbd;
+
+}
+
+@media(max-width:768px){
+
+.achievement-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.achievement-card{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+}
