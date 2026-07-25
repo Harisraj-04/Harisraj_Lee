@@ -355,3 +355,33 @@ footer{
 .repo-card a:hover{
     box-shadow:0 0 15px #00e5ff;
 }
+
+/* ===========================
+   CYBER BACKGROUND OVERLAY
+=========================== */
+
+#cyber-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+}
+
+#matrix{
+    width:100%;
+    height:100%;
+    display:block;
+    opacity:0.12;   /* Change 0.05–0.20 to control visibility */
+}
+
+/* Keep all page content above the animation */
+header,
+section,
+footer{
+    position:relative;
+    z-index:2;
+}
