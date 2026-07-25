@@ -1,4 +1,3 @@
-
 // ===============================
 // Smooth Active Navigation
 // ===============================
@@ -13,9 +12,8 @@ window.addEventListener("scroll", () => {
     sections.forEach(section => {
 
         const sectionTop = section.offsetTop - 120;
-        const sectionHeight = section.clientHeight;
 
-        if (pageYOffset >= sectionTop) {
+        if (window.pageYOffset >= sectionTop) {
             current = section.getAttribute("id");
         }
 
@@ -35,214 +33,198 @@ window.addEventListener("scroll", () => {
 
 
 // ===============================
-// Reveal Animation on Scroll
+// Reveal Animation
 // ===============================
 
 const revealElements = document.querySelectorAll(
-".card, .education-card, .skill-box, .gallery-card, .contact-box"
+".card,.education-card,.skill-box,.gallery-card,.contact-box,.repo-card"
 );
 
-const reveal = () => {
+function reveal(){
 
-    revealElements.forEach(element => {
+    revealElements.forEach(element=>{
 
-        const windowHeight = window.innerHeight;
-        const revealTop = element.getBoundingClientRect().top;
-        const revealPoint = 120;
+        const revealTop=element.getBoundingClientRect().top;
+        const revealPoint=120;
 
-        if (revealTop < windowHeight - revealPoint) {
+        if(revealTop < window.innerHeight-revealPoint){
 
-            element.style.opacity = "1";
-            element.style.transform = "translateY(0px)";
+            element.style.opacity="1";
+            element.style.transform="translateY(0)";
 
         }
 
     });
 
-};
+}
 
-revealElements.forEach(element => {
+revealElements.forEach(element=>{
 
-    element.style.opacity = "0";
-    element.style.transform = "translateY(40px)";
-    element.style.transition = "0.7s ease";
+    element.style.opacity="0";
+    element.style.transform="translateY(40px)";
+    element.style.transition=".7s ease";
 
 });
 
-window.addEventListener("scroll", reveal);
-window.addEventListener("load", reveal);
+window.addEventListener("scroll",reveal);
+window.addEventListener("load",reveal);
 
 
 // ===============================
 // Scroll To Top Button
 // ===============================
 
-const topButton = document.createElement("button");
+const topButton=document.createElement("button");
 
-topButton.innerHTML = "↑";
+topButton.innerHTML="↑";
 
-topButton.id = "topButton";
+topButton.id="topButton";
 
 document.body.appendChild(topButton);
 
-topButton.style.position = "fixed";
-topButton.style.bottom = "25px";
-topButton.style.right = "25px";
-topButton.style.width = "50px";
-topButton.style.height = "50px";
-topButton.style.border = "none";
-topButton.style.borderRadius = "50%";
-topButton.style.background = "#00e5ff";
-topButton.style.color = "#111";
-topButton.style.fontSize = "22px";
-topButton.style.cursor = "pointer";
-topButton.style.display = "none";
-topButton.style.boxShadow = "0 0 20px #00e5ff";
-topButton.style.zIndex = "999";
+Object.assign(topButton.style,{
+position:"fixed",
+bottom:"25px",
+right:"25px",
+width:"50px",
+height:"50px",
+border:"none",
+borderRadius:"50%",
+background:"#00e5ff",
+color:"#111",
+fontSize:"22px",
+cursor:"pointer",
+display:"none",
+boxShadow:"0 0 20px #00e5ff",
+zIndex:"999"
+});
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll",()=>{
 
-    if (window.scrollY > 350) {
-
-        topButton.style.display = "block";
-
-    } else {
-
-        topButton.style.display = "none";
-
+    if(window.scrollY>350){
+        topButton.style.display="block";
+    }
+    else{
+        topButton.style.display="none";
     }
 
 });
 
-topButton.addEventListener("click", () => {
+topButton.onclick=()=>{
 
     window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+        top:0,
+        behavior:"smooth"
     });
 
-});
+};
 
 
-// ===============================
-// Console Welcome Message
-// ===============================
-
-console.log("%cWelcome to HARISRAJ G Portfolio", "color:#00e5ff;font-size:18px;font-weight:bold;");
 // ===============================
 // Auto Hide Navbar
 // ===============================
 
-let lastScrollTop = 0;
-const header = document.querySelector("header");
+let lastScrollTop=0;
 
-window.addEventListener("scroll", () => {
+const header=document.querySelector("header");
 
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+window.addEventListener("scroll",()=>{
 
-    if (scrollTop > lastScrollTop && scrollTop > 100) {
-        // Scrolling down
-        header.style.top = "-120px";
-    } else {
-        // Scrolling up
-        header.style.top = "0";
-    }
+let scrollTop=window.pageYOffset || document.documentElement.scrollTop;
 
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+if(scrollTop>lastScrollTop && scrollTop>100){
 
-});
-//new
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
+header.style.top="-120px";
 
-function resizeCanvas(){
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+}
+else{
+
+header.style.top="0";
+
 }
 
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
+lastScrollTop=scrollTop<=0?0:scrollTop;
 
-const chars = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ<>/{}[]#$%^&*";
-const fontSize = 16;
-let columns = Math.floor(canvas.width / fontSize);
-let drops = Array(columns).fill(1);
+});
+
+
+// ===============================
+// Console Message
+// ===============================
+
+console.log("%cWelcome to HARISRAJ G Portfolio",
+"color:#00e5ff;font-size:18px;font-weight:bold;");
+
+
+// ===============================
+// CYBER BINARY RAIN BACKGROUND
+// ===============================
+
+const canvas=document.getElementById("matrix");
+
+if(canvas){
+
+const ctx=canvas.getContext("2d");
+
+function resizeCanvas(){
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+columns=Math.floor(canvas.width/fontSize);
+
+drops=[];
+
+for(let i=0;i<columns;i++){
+
+drops[i]=Math.random()*-100;
+
+}
+
+}
+
+const fontSize=18;
+
+let columns=0;
+
+let drops=[];
+
+resizeCanvas();
+
+window.addEventListener("resize",resizeCanvas);
 
 function draw(){
 
-    ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="rgba(13,17,23,0.06)";
+ctx.fillRect(0,0,canvas.width,canvas.height);
 
-    ctx.fillStyle = "rgba(0,229,255,0.15)";
-    ctx.font = fontSize + "px monospace";
+ctx.fillStyle="#00e5ff";
+ctx.font=fontSize+"px monospace";
 
-    for(let i=0;i<drops.length;i++){
+for(let i=0;i<drops.length;i++){
 
-        const text = chars[Math.floor(Math.random()*chars.length)];
+const text=Math.random()>0.5?"1":"0";
 
-        ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+ctx.fillText(
+text,
+i*fontSize,
+drops[i]*fontSize
+);
 
-        if(drops[i]*fontSize > canvas.height && Math.random()>0.98){
-            drops[i]=0;
-        }
+if(drops[i]*fontSize>canvas.height){
 
-        drops[i]++;
-
-    }
+drops[i]=Math.random()*-20;
 
 }
 
-setInterval(draw,45);
+drops[i]+=0.8+Math.random()*0.5;
 
-// ===============================
-// Cyber Binary Rain Background
-// ===============================
-
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
-
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
 }
 
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
+requestAnimationFrame(draw);
 
-const fontSize = 18;
-let columns = Math.floor(window.innerWidth / fontSize);
-
-const drops = [];
-
-for (let i = 0; i < columns; i++) {
-    drops[i] = Math.random() * -100;
-}
-
-function draw() {
-
-    ctx.fillStyle = "rgba(13,17,23,0.08)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.font = fontSize + "px Consolas";
-    ctx.fillStyle = "#00ffff";
-
-    for (let i = 0; i < drops.length; i++) {
-
-        const text = Math.random() > 0.5 ? "1" : "0";
-
-        ctx.fillText(
-            text,
-            i * fontSize,
-            drops[i] * fontSize
-        );
-
-        if (drops[i] * fontSize > canvas.height) {
-            drops[i] = Math.random() * -20;
-        }
-
-        drops[i] += 0.8;
-    }
-
-    requestAnimationFrame(draw);
 }
 
 draw();
+
+}
