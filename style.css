@@ -88,14 +88,15 @@ section{
 }
 
 .profile-image{
-    width:320px;
-    height:320px;
+    width:100%;
+    max-width:320px;
+    aspect-ratio:1/1;
     object-fit:cover;
+    object-position:center top;
     border-radius:50%;
     border:5px solid #00e5ff;
     box-shadow:0 0 40px rgba(0,229,255,.5);
 }
-
 .hero-right{
     max-width:650px;
 }
