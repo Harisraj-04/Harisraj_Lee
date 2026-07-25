@@ -193,3 +193,56 @@ function draw(){
 
 setInterval(draw,45);
 
+// ===============================
+// Cyber Binary Rain Background
+// ===============================
+
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+const fontSize = 18;
+let columns = Math.floor(window.innerWidth / fontSize);
+
+const drops = [];
+
+for (let i = 0; i < columns; i++) {
+    drops[i] = Math.random() * -100;
+}
+
+function draw() {
+
+    ctx.fillStyle = "rgba(13,17,23,0.08)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.font = fontSize + "px Consolas";
+    ctx.fillStyle = "#00ffff";
+
+    for (let i = 0; i < drops.length; i++) {
+
+        const text = Math.random() > 0.5 ? "1" : "0";
+
+        ctx.fillText(
+            text,
+            i * fontSize,
+            drops[i] * fontSize
+        );
+
+        if (drops[i] * fontSize > canvas.height) {
+            drops[i] = Math.random() * -20;
+        }
+
+        drops[i] += 0.8;
+    }
+
+    requestAnimationFrame(draw);
+}
+
+draw();
