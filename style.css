@@ -1,813 +1,2275 @@
 /* ===========================
    GOOGLE FONT
 =========================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
 
 /* ===========================
    RESET
 =========================== */
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-    font-family:'Poppins',sans-serif;
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:'Poppins',sans-serif;
+
 }
+
+
 
 body{
-    background:#0d1117;
-    color:#ffffff;
-    line-height:1.7;
+
+background:#0d1117;
+color:white;
+line-height:1.7;
+overflow-x:hidden;
+
 }
 
-/* ===========================
-   NAVBAR
-=========================== */
 
-header{
-    width:100%;
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:1000;
-    background:rgba(13,17,23,0.95);
-    backdrop-filter:blur(12px);
-    transition:top 0.4s ease;
-}
 
-.navbar{
-    max-width:1200px;
-    margin:auto;
-    padding:18px 25px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    color:#ff2b2b;
-    font-size:28px;
-    font-weight:700;
-}
-
-.nav-links{
-    display:flex;
-    list-style:none;
-}
-
-.nav-links li{
-    margin-left:30px;
-}
-
-.nav-links a{
-    text-decoration:none;
-    color:white;
-    transition:.3s;
-    font-weight:500;
-}
-
-.nav-links a:hover{
-    color:#ff2b2b;
-}
 
 
 /* ===========================
-   SECTION
+   CYBER BACKGROUND
 =========================== */
 
-section{
-    padding:110px 8%;
-}
-
-
-/* ===========================
-   HERO
-=========================== */
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:70px;
-    flex-wrap:wrap;
-}
-
-.profile-image{
-    width:100%;
-    max-width:320px;
-    aspect-ratio:1/1;
-    object-fit:cover;
-    object-position:center top;
-    border-radius:50%;
-    border:5px solid #ff2b2b;
-    box-shadow:0 0 40px rgba(255,43,43,.5);
-}
-
-.hero-right{
-    max-width:650px;
-}
-
-.hero-right h1{
-    font-size:28px;
-}
-
-.hero-right h2{
-    font-size:55px;
-    color:#ff2b2b;
-    margin:10px 0;
-}
-
-.hero-right h3{
-    font-size:28px;
-    margin-bottom:20px;
-}
-
-.hero-right p{
-    color:#cccccc;
-}
-
-
-/* ===========================
-   BUTTONS
-=========================== */
-
-.hero-buttons{
-    margin-top:30px;
-}
-
-.btn,
-.btn2{
-    display:inline-block;
-    padding:14px 32px;
-    border-radius:8px;
-    text-decoration:none;
-    margin-right:15px;
-    transition:.3s;
-    font-weight:600;
-}
-
-.btn{
-    background:#ff2b2b;
-    color:#111;
-}
-
-.btn:hover{
-    transform:translateY(-4px);
-    box-shadow:0 0 20px #ff2b2b;
-}
-
-.btn2{
-    border:2px solid #ff2b2b;
-    color:white;
-}
-
-.btn2:hover{
-    background:#ff2b2b;
-    color:#111;
-}
-
-
-/* ===========================
-   TITLES
-=========================== */
-
-.section-title{
-    text-align:center;
-    color:#ff2b2b;
-    margin-bottom:50px;
-    font-size:38px;
-}
-
-
-/* ===========================
-   CARDS
-=========================== */
-
-.card,
-.education-card,
-.skill-box,
-.gallery-card,
-.contact-box{
-
-    background:#161b22;
-    border-radius:15px;
-    padding:30px;
-    border:1px solid #30363d;
-    transition:.4s;
-}
-
-
-.card:hover,
-.education-card:hover,
-.skill-box:hover,
-.gallery-card:hover{
-
-    transform:translateY(-8px);
-    box-shadow:0 0 25px rgba(255,43,43,.35);
-
-}
-
-
-/* ===========================
-   SKILLS
-=========================== */
-
-.skills-container{
-
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-
-}
-
-
-.skill-box h3{
-
-    color:#ff2b2b;
-    margin-bottom:15px;
-
-}
-
-
-.skill-box ul{
-
-    list-style:none;
-
-}
-
-
-.skill-box li{
-
-    margin-bottom:10px;
-
-}
-
-
-/* ===========================
-   ACHIEVEMENTS
-=========================== */
-
-.card ul{
-
-    padding-left:20px;
-
-}
-
-
-.card li{
-
-    margin-bottom:15px;
-
-}
-
-
-/* ===========================
-   GALLERY
-=========================== */
-
-.gallery{
-
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:30px;
-
-}
-
-
-.gallery-card img{
-
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    border-radius:10px;
-
-}
-/* ===========================
-   CONTACT
-=========================== */
-
-.contact-box{
-    max-width:650px;
-    margin:auto;
-}
-
-.contact-box p{
-    margin:18px 0;
-    font-size:18px;
-}
-
-.contact-box i{
-    color:#ff2b2b;
-    margin-right:10px;
-}
-
-.contact-box a{
-    color:white;
-    text-decoration:none;
-}
-
-.contact-box a:hover{
-    color:#ff2b2b;
-}
-
-
-/* ===========================
-   FOOTER
-=========================== */
-
-footer{
-    text-align:center;
-    padding:25px;
-    background:#161b22;
-    color:#999;
-}
-
-
-/* ===========================
-   RESPONSIVE
-=========================== */
-
-@media (max-width:768px){
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    gap:35px;
-    padding-top:180px;
-    padding-bottom:100px;
-}
-
-.hero-right h2{
-    font-size:40px;
-}
-
-.profile-image{
-    width:240px;
-    height:240px;
-    object-fit:cover;
-    object-position:center top;
-}
-
-.hero-buttons{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:18px;
-    margin-top:30px;
-}
-
-.hero-buttons .btn,
-.hero-buttons .btn2{
-    width:260px;
-    margin:0;
-    text-align:center;
-}
-
-.navbar{
-    flex-direction:column;
-}
-
-.nav-links{
-    flex-wrap:wrap;
-    justify-content:center;
-    margin-top:15px;
-}
-
-.nav-links li{
-    margin:10px;
-}
-
-.section-title{
-    font-size:30px;
-}
-
-}
-
-
-/* ===========================
-   PROJECTS
-=========================== */
-
-.repo-card{
-
-    background:#161b22;
-    border:1px solid #30363d;
-    border-radius:15px;
-    padding:25px;
-    transition:.3s;
-
-}
-
-
-.repo-card:hover{
-
-    transform:translateY(-8px);
-    box-shadow:0 0 20px rgba(255,43,43,.4);
-
-}
-
-
-.repo-card h3{
-
-    color:#ff2b2b;
-    margin-bottom:15px;
-
-}
-
-
-.repo-card p{
-
-    color:#c9d1d9;
-    margin-bottom:20px;
-
-}
-
-
-.repo-card a{
-
-    display:inline-block;
-    text-decoration:none;
-    background:#ff2b2b;
-    color:#111;
-    padding:10px 20px;
-    border-radius:8px;
-    font-weight:600;
-
-}
-
-
-.repo-card a:hover{
-
-    box-shadow:0 0 15px #ff2b2b;
-
-}
-
-
-/* ===========================
-   CYBER BACKGROUND OVERLAY
-=========================== */
 
 #cyber-bg{
 
-    position:fixed;
-    inset:0;
-    z-index:-1;
-    overflow:hidden;
-    pointer-events:none;
+position:fixed;
+inset:0;
+z-index:-1;
+overflow:hidden;
+pointer-events:none;
 
 }
 
 
 #matrix{
 
-    width:100%;
-    height:100%;
-    display:block;
-    opacity:.35;
-    filter:drop-shadow(0 0 6px #ff2b2b);
+width:100%;
+height:100%;
+
+filter:
+drop-shadow(0 0 8px #ff2b2b);
+
+opacity:.35;
 
 }
 
 
-/* Keep all page content above animation */
 
-header,
-section,
-footer{
 
-    position:relative;
-    z-index:2;
 
-}
 
 
 /* ===========================
-   ACHIEVEMENTS
+   NAVBAR
 =========================== */
+
+
+header{
+
+width:100%;
+
+position:fixed;
+
+top:0;
+left:0;
+
+z-index:1000;
+
+background:
+rgba(13,17,23,.92);
+
+backdrop-filter:blur(12px);
+
+border-bottom:
+1px solid rgba(255,43,43,.3);
+
+}
+
+
+
+.navbar{
+
+max-width:1200px;
+
+margin:auto;
+
+padding:18px 25px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+
+
+
+.logo{
+
+color:#ff2b2b;
+
+font-size:28px;
+
+font-weight:700;
+
+
+text-shadow:
+
+0 0 10px #ff2b2b,
+0 0 20px #ff2b2b;
+
+}
+
+
+
+
+.nav-links{
+
+display:flex;
+
+list-style:none;
+
+}
+
+
+
+
+.nav-links li{
+
+margin-left:30px;
+
+}
+
+
+
+
+.nav-links a{
+
+text-decoration:none;
+
+color:white;
+
+font-weight:500;
+
+transition:.3s;
+
+}
+
+
+
+.nav-links a:hover{
+
+color:#ff2b2b;
+
+
+text-shadow:
+
+0 0 10px #ff2b2b;
+
+}
+
+
+
+
+
+
+
+
+/* ===========================
+   SECTION
+=========================== */
+
+
+section{
+
+padding:110px 8%;
+
+}
+
+
+
+
+
+
+
+
+/* ===========================
+   HERO SECTION
+=========================== */
+
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:70px;
+
+flex-wrap:wrap;
+
+}
+
+
+
+
+.profile-image{
+
+
+width:320px;
+
+height:320px;
+
+
+object-fit:cover;
+
+
+border-radius:50%;
+
+
+border:
+
+5px solid #ff2b2b;
+
+
+box-shadow:
+
+0 0 25px #ff2b2b,
+0 0 50px rgba(255,43,43,.5);
+
+
+animation:
+
+pulse 3s infinite;
+
+
+}
+
+
+
+
+@keyframes pulse{
+
+
+0%{
+
+box-shadow:
+
+0 0 20px #ff2b2b;
+
+}
+
+
+50%{
+
+box-shadow:
+
+0 0 50px #ff2b2b;
+
+}
+
+
+100%{
+
+box-shadow:
+
+0 0 20px #ff2b2b;
+
+}
+
+
+}
+
+
+
+
+
+
+.hero-right{
+
+max-width:650px;
+
+}
+
+
+
+
+.hero-right h1{
+
+font-size:28px;
+
+}
+
+
+
+
+.hero-right h2{
+
+font-size:55px;
+
+color:#ff2b2b;
+
+
+text-shadow:
+
+0 0 15px #ff2b2b;
+
+}
+
+
+
+.hero-right h3{
+
+font-size:28px;
+
+margin-bottom:20px;
+
+}
+
+
+
+
+.hero-right p{
+
+color:#ccc;
+
+font-size:16px;
+
+}
+/* ===========================
+   BUTTONS
+=========================== */
+
+
+.hero-buttons{
+
+margin-top:30px;
+
+}
+
+
+
+.btn,
+.btn2{
+
+
+display:inline-block;
+
+padding:14px 32px;
+
+border-radius:8px;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.35s;
+
+margin-right:15px;
+
+cursor:pointer;
+
+}
+
+
+
+
+
+.btn{
+
+
+background:#ff2b2b;
+
+color:white;
+
+
+box-shadow:
+
+0 0 15px rgba(255,43,43,.5);
+
+
+}
+
+
+
+
+
+.btn:hover{
+
+
+transform:translateY(-5px);
+
+
+box-shadow:
+
+0 0 30px #ff2b2b;
+
+
+}
+
+
+
+
+
+
+.btn2{
+
+
+border:
+
+2px solid #ff2b2b;
+
+
+color:white;
+
+
+}
+
+
+
+
+
+.btn2:hover{
+
+
+background:#ff2b2b;
+
+
+color:white;
+
+
+box-shadow:
+
+0 0 20px #ff2b2b;
+
+
+transform:translateY(-5px);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ===========================
+   SECTION TITLES
+=========================== */
+
+
+.section-title{
+
+
+text-align:center;
+
+
+color:#ff2b2b;
+
+
+margin-bottom:50px;
+
+
+font-size:38px;
+
+
+
+text-shadow:
+
+
+0 0 10px #ff2b2b,
+0 0 20px rgba(255,43,43,.7);
+
+
+
+position:relative;
+
+
+}
+
+
+
+
+
+.section-title::after{
+
+
+content:"";
+
+
+display:block;
+
+
+width:90px;
+
+
+height:3px;
+
+
+background:#ff2b2b;
+
+
+margin:15px auto;
+
+
+box-shadow:
+
+
+0 0 15px #ff2b2b;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ===========================
+   COMMON CARDS
+=========================== */
+
+
+.card,
+.education-card,
+.skill-box,
+.contact-box{
+
+
+background:
+
+rgba(22,27,34,.95);
+
+
+border-radius:15px;
+
+
+padding:30px;
+
+
+border:
+
+1px solid #30363d;
+
+
+transition:.4s;
+
+
+}
+
+
+
+.card:hover,
+.education-card:hover,
+.skill-box:hover,
+.contact-box:hover{
+
+
+transform:
+
+translateY(-8px);
+
+
+border-color:#ff2b2b;
+
+
+box-shadow:
+
+
+0 0 30px rgba(255,43,43,.35);
+
+
+}
+
+
+
+
+
+
+
+
+/* ===========================
+   SKILLS
+=========================== */
+
+
+.skills-container{
+
+
+display:grid;
+
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(250px,1fr));
+
+
+gap:30px;
+
+
+}
+
+
+
+
+
+.skill-box h3{
+
+
+color:#ff2b2b;
+
+
+font-size:22px;
+
+
+margin-bottom:15px;
+
+
+text-shadow:
+
+
+0 0 10px rgba(255,43,43,.6);
+
+
+}
+
+
+
+
+.skill-box ul{
+
+
+list-style:none;
+
+
+}
+
+
+
+
+
+.skill-box li{
+
+
+margin-bottom:12px;
+
+
+color:#ddd;
+
+
+position:relative;
+
+
+padding-left:20px;
+
+
+}
+
+
+
+
+
+.skill-box li::before{
+
+
+content:"";
+
+
+position:absolute;
+
+
+left:0;
+
+
+top:10px;
+
+
+width:8px;
+
+
+height:8px;
+
+
+border-radius:50%;
+
+
+background:#ff2b2b;
+
+
+box-shadow:
+
+
+0 0 10px #ff2b2b;
+
+
+}
+/* ===========================
+   ACHIEVEMENTS GRID
+=========================== */
+
 
 .achievement-grid{
 
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:25px;
+
+display:grid;
+
+
+grid-template-columns:
+
+repeat(2,1fr);
+
+
+gap:25px;
+
 
 }
+
+
+
 
 
 .achievement-card{
 
-    display:flex;
-    align-items:center;
-    gap:20px;
-    padding:28px;
-    background:#161b22;
-    border:1px solid #30363d;
-    border-radius:18px;
-    transition:.35s ease;
-    min-height:160px;
+
+background:
+
+rgba(20,20,20,.85);
+
+
+border:
+
+1px solid #333;
+
+
+border-radius:15px;
+
+
+padding:25px;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+gap:20px;
+
+
+transition:.4s;
+
+
+position:relative;
+
+
+overflow:hidden;
+
 
 }
+
+
+
+
+
+.achievement-card::before{
+
+
+content:"";
+
+
+position:absolute;
+
+
+top:0;
+
+
+left:-100%;
+
+
+width:100%;
+
+
+height:100%;
+
+
+background:
+
+linear-gradient(
+
+120deg,
+
+transparent,
+
+rgba(255,43,43,.25),
+
+transparent
+
+);
+
+
+transition:.6s;
+
+
+}
+
+
+
+
+.achievement-card:hover::before{
+
+
+left:100%;
+
+
+}
+
+
+
 
 
 .achievement-card:hover{
 
-    transform:translateY(-8px);
-    border-color:#ff2b2b;
-    box-shadow:0 0 30px rgba(255,43,43,.35);
+
+transform:
+
+translateY(-8px);
+
+
+border-color:#ff2b2b;
+
+
+box-shadow:
+
+
+0 0 25px rgba(255,43,43,.5);
+
 
 }
+
+
+
 
 
 .achievement-icon{
 
-    width:70px;
-    height:70px;
-    min-width:70px;
-    border-radius:50%;
-    background:#ff2b2b;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:white;
-    font-size:28px;
+
+width:60px;
+
+
+height:60px;
+
+
+min-width:60px;
+
+
+border-radius:50%;
+
+
+background:#ff2b2b;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+color:white;
+
+
+font-size:25px;
+
+
+box-shadow:
+
+
+0 0 20px #ff2b2b;
+
 
 }
 
 
-.achievement-content{
 
-    flex:1;
-
-}
 
 
 .achievement-content h3{
 
-    margin-bottom:8px;
+
+color:white;
+
+
+margin-bottom:8px;
+
+
+font-size:20px;
+
 
 }
+
+
+
 
 
 .achievement-content p{
 
-    color:#c7c7c7;
-    line-height:1.6;
+
+color:#ccc;
+
+
+font-size:14px;
+
 
 }
 
 
-/* Mobile */
 
-@media(max-width:768px){
 
-.achievement-grid{
 
-    grid-template-columns:1fr;
+
+
+
+
+/* ===========================
+   CERTIFICATE GALLERY
+=========================== */
+
+
+.gallery{
+
+
+display:grid;
+
+
+grid-template-columns:
+
+
+repeat(auto-fit,minmax(260px,1fr));
+
+
+gap:30px;
+
 
 }
 
+
+
+
+
+.gallery-card{
+
+
+background:#161b22;
+
+
+padding:20px;
+
+
+border-radius:15px;
+
+
+cursor:pointer;
+
+
+border:
+
+1px solid #30363d;
+
+
+transition:.4s;
+
+
+overflow:hidden;
+
+
 }
+
+
+
+
+
+.gallery-card img{
+
+
+width:100%;
+
+
+height:250px;
+
+
+object-fit:cover;
+
+
+border-radius:10px;
+
+
+transition:.4s;
+
+
+}
+
+
+
+
+
+.gallery-card:hover{
+
+
+transform:
+
+scale(1.05);
+
+
+border-color:#ff2b2b;
+
+
+box-shadow:
+
+
+0 0 30px rgba(255,43,43,.7);
+
+
+}
+
+
+
+
+
+.gallery-card:hover img{
+
+
+transform:
+
+scale(1.08);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ===========================
+   PRIZE SECTION
+=========================== */
+
+
+.prize-container{
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+align-items:center;
+
+
+}
+
+
+
+
+.prize-card{
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+align-items:center;
+
+
+}
+
+
+
+
+
+.prize-card img{
+
+
+width:320px;
+
+
+aspect-ratio:3/4;
+
+
+object-fit:cover;
+
+
+border-radius:15px;
+
+
+cursor:pointer;
+
+
+border:
+
+2px solid #ff2b2b;
+
+
+transition:.4s;
+
+
+box-shadow:
+
+
+0 0 20px rgba(255,43,43,.4);
+
+
+}
+
+
+
+
+
+.prize-card img:hover{
+
+
+transform:
+
+scale(1.05);
+
+
+box-shadow:
+
+
+0 0 35px #ff2b2b;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ===========================
+   LIGHTBOX POPUP
+=========================== */
+
+
+#lightbox{
+
+
+display:none;
+
+
+position:fixed;
+
+
+top:0;
+
+
+left:0;
+
+
+width:100%;
+
+
+height:100%;
+
+
+background:
+
+
+rgba(0,0,0,.95);
+
+
+z-index:5000;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+}
+
+
+
+
+
+#lightbox img{
+
+
+max-width:90%;
+
+
+max-height:90%;
+
+
+border-radius:12px;
+
+
+box-shadow:
+
+
+0 0 40px #ff2b2b;
+
+
+animation:
+
+zoom .3s ease;
+
+
+}
+
+
+
+
+
+@keyframes zoom{
+
+
+from{
+
+
+transform:scale(.7);
+
+
+opacity:0;
+
+
+}
+
+
+to{
+
+
+transform:scale(1);
+
+
+opacity:1;
+
+
+}
+
+
+}
+
+
+
+
+
+#closeLightbox{
+
+
+position:absolute;
+
+
+top:25px;
+
+
+right:40px;
+
+
+font-size:50px;
+
+
+color:white;
+
+
+cursor:pointer;
+
+
+transition:.3s;
+
+
+}
+
+
+
+
+
+#closeLightbox:hover{
+
+
+color:#ff2b2b;
+
+
+text-shadow:
+
+
+0 0 20px #ff2b2b;
+
+
+}
+/* ===========================
+   CONTACT SECTION
+=========================== */
+
+
+.contact-box{
+
+
+max-width:650px;
+
+
+margin:auto;
+
+
+background:
+
+rgba(22,27,34,.95);
+
+
+border-radius:15px;
+
+
+padding:35px;
+
+
+border:
+
+1px solid #30363d;
+
+
+transition:.4s;
+
+
+}
+
+
+
+
+
+.contact-box:hover{
+
+
+border-color:#ff2b2b;
+
+
+box-shadow:
+
+
+0 0 30px rgba(255,43,43,.35);
+
+
+}
+
+
+
+
+
+.contact-box p{
+
+
+margin:20px 0;
+
+
+font-size:18px;
+
+
+color:#ddd;
+
+
+}
+
+
+
+
+
+.contact-box i{
+
+
+color:#ff2b2b;
+
+
+margin-right:12px;
+
+
+font-size:20px;
+
+
+text-shadow:
+
+
+0 0 10px #ff2b2b;
+
+
+}
+
+
+
+
+
+.contact-box a{
+
+
+color:white;
+
+
+text-decoration:none;
+
+
+transition:.3s;
+
+
+}
+
+
+
+
+
+.contact-box a:hover{
+
+
+color:#ff2b2b;
+
+
+text-shadow:
+
+
+0 0 10px #ff2b2b;
+
+
+}
+
+
+
+
+
+
+
 
 
 /* ===========================
    FOOTER
 =========================== */
 
+
 footer{
 
-    background:#0b0b0b;
-    border-top:2px solid #ff2b2b;
-    text-align:center;
-    padding:45px 20px;
+
+background:#0b0b0b;
+
+
+border-top:
+
+
+2px solid #ff2b2b;
+
+
+padding:45px 20px;
+
+
+text-align:center;
+
 
 }
+
+
+
 
 
 .footer-content h3{
 
-    color:#ff2b2b;
-    font-size:28px;
-    margin-bottom:10px;
+
+font-size:30px;
+
+
+color:#ff2b2b;
+
+
+margin-bottom:10px;
+
+
+text-shadow:
+
+
+0 0 15px #ff2b2b;
+
 
 }
+
+
+
 
 
 .footer-content p{
 
-    color:#bdbdbd;
+
+color:#bdbdbd;
+
 
 }
+
+
+
 
 
 .footer-social{
 
-    margin:25px 0;
+
+margin:25px 0;
+
 
 }
+
+
+
 
 
 .footer-social a{
 
-    width:48px;
-    height:48px;
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-    border:2px solid #ff2b2b;
-    border-radius:50%;
-    color:#fff;
-    margin:0 10px;
-    font-size:22px;
-    transition:.35s;
+
+width:50px;
+
+
+height:50px;
+
+
+display:inline-flex;
+
+
+justify-content:center;
+
+
+align-items:center;
+
+
+border:
+
+
+2px solid #ff2b2b;
+
+
+border-radius:50%;
+
+
+color:white;
+
+
+margin:0 10px;
+
+
+font-size:22px;
+
+
+transition:.35s;
+
 
 }
+
+
+
 
 
 .footer-social a:hover{
 
-    background:#ff2b2b;
-    color:#fff;
-    transform:translateY(-5px);
-    box-shadow:0 0 20px rgba(255,43,43,.6);
+
+background:#ff2b2b;
+
+
+color:white;
+
+
+transform:
+
+
+translateY(-8px);
+
+
+box-shadow:
+
+
+0 0 25px #ff2b2b;
+
 
 }
+
+
+
 
 
 footer hr{
 
-    margin:25px auto;
-    width:80%;
-    border:0;
-    border-top:1px solid #333;
+
+width:80%;
+
+
+margin:25px auto;
+
+
+border:0;
+
+
+border-top:
+
+
+1px solid #333;
+
 
 }
+
+
+
 
 
 .copyright{
 
-    color:#888;
-    font-size:15px;
+
+color:#888;
+
+
+font-size:14px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ===========================
+   MATRIX BACKGROUND
+=========================== */
+
+
+#cyber-bg{
+
+
+position:fixed;
+
+
+inset:0;
+
+
+z-index:-1;
+
+
+overflow:hidden;
+
+
+pointer-events:none;
+
+
+}
+
+
+
+
+
+#matrix{
+
+
+width:100%;
+
+
+height:100%;
+
+
+display:block;
+
+
+opacity:.35;
+
+
+filter:
+
+
+drop-shadow(0 0 8px #ff2b2b);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+
+::-webkit-scrollbar{
+
+
+width:10px;
+
+
+}
+
+
+
+
+
+::-webkit-scrollbar-track{
+
+
+background:#0d1117;
+
+
+}
+
+
+
+
+
+::-webkit-scrollbar-thumb{
+
+
+background:#ff2b2b;
+
+
+border-radius:10px;
+
+
+box-shadow:
+
+
+0 0 10px #ff2b2b;
+
+
+}
+
+
+
+
+
+::-webkit-scrollbar-thumb:hover{
+
+
+background:#ff5555;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ===========================
+   SELECTION COLOR
+=========================== */
+
+
+::selection{
+
+
+background:#ff2b2b;
+
+
+color:white;
+
 
 }
 /* ===========================
-   ENHANCED SECTION TITLE
+   RESPONSIVE DESIGN
 =========================== */
 
-.section-title{
-    text-align:center;
-    color:#ff2b2b;
-    margin-bottom:50px;
-    font-size:38px;
-    text-shadow:
-    0 0 10px #ff2b2b;
-}
+
+@media(max-width:1024px){
 
 
-/* ===========================
-   ACHIEVEMENT GRID
-=========================== */
+.hero{
 
-.achievement-grid{
-
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:25px;
-
-}
-
-
-.achievement-card{
-
-    background:
-    rgba(20,20,20,0.85);
-
-    border:1px solid #333;
-
-    border-radius:15px;
-
-    padding:25px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
-
-    transition:.4s;
-
-}
-
-
-.achievement-card:hover{
-
-    transform:translateY(-8px);
-
-    border-color:#ff2b2b;
-
-    box-shadow:
-    0 0 25px rgba(255,43,43,.5);
+gap:40px;
 
 }
 
 
 
-.achievement-icon{
+.hero-right h2{
 
-    width:55px;
-    height:55px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    background:#ff2b2b;
-
-    color:white;
-
-    font-size:22px;
-
-    box-shadow:
-    0 0 20px #ff2b2b;
+font-size:45px;
 
 }
 
 
 
-.achievement-content h3{
+.profile-image{
 
-    color:white;
+width:280px;
 
-    margin-bottom:8px;
+height:280px;
+
+}
+
+
+
+section{
+
+padding:100px 5%;
 
 }
 
 
-.achievement-content p{
-
-    color:#ccc;
-
-    font-size:14px;
-
 }
+
+
+
+
 
 
 
 @media(max-width:768px){
 
-    .achievement-grid{
 
-        grid-template-columns:1fr;
 
-    }
+/* NAVBAR */
+
+
+.navbar{
+
+
+flex-direction:column;
+
+
+padding:15px;
+
 
 }
 
 
 
-/* ===========================
-   CERTIFICATE HOVER
-=========================== */
+.logo{
 
 
-.gallery-card{
+font-size:24px;
 
-    cursor:pointer;
-
-    transition:.4s;
-
-}
-
-
-.gallery-card:hover{
-
-    transform:scale(1.05);
-
-    box-shadow:
-
-    0 0 25px rgba(255,43,43,.7);
 
 }
 
 
 
-/* ===========================
-   PRIZE IMAGE SIZE
-=========================== */
+.nav-links{
 
 
-.prize-container{
+flex-wrap:wrap;
 
-    display:flex;
 
-    justify-content:center;
+justify-content:center;
+
+
+margin-top:15px;
+
+
+}
+
+
+
+.nav-links li{
+
+
+margin:8px 12px;
+
+
+}
+
+
+
+.nav-links a{
+
+
+font-size:14px;
+
+
+}
+
+
+
+
+
+
+
+
+/* HERO */
+
+
+.hero{
+
+
+min-height:100vh;
+
+
+flex-direction:column;
+
+
+text-align:center;
+
+
+gap:35px;
+
+
+padding-top:170px;
+
+
+}
+
+
+
+.profile-image{
+
+
+width:240px;
+
+
+height:240px;
+
+
+}
+
+
+
+
+.hero-right{
+
+
+max-width:100%;
+
+
+}
+
+
+
+.hero-right h1{
+
+
+font-size:24px;
+
+
+}
+
+
+
+.hero-right h2{
+
+
+font-size:38px;
+
+
+}
+
+
+
+.hero-right h3{
+
+
+font-size:22px;
+
+
+}
+
+
+
+.hero-right p{
+
+
+font-size:14px;
+
+
+}
+
+
+
+
+
+
+
+
+/* BUTTONS */
+
+
+.hero-buttons{
+
+
+display:flex;
+
+
+flex-direction:column;
+
+
+align-items:center;
+
+
+gap:18px;
+
+
+}
+
+
+
+.btn,
+.btn2{
+
+
+width:260px;
+
+
+margin:0;
+
+
+text-align:center;
+
+
+}
+
+
+
+
+
+
+
+
+/* TITLES */
+
+
+.section-title{
+
+
+font-size:30px;
+
+
+}
+
+
+
+
+
+/* CARDS */
+
+
+.card,
+.education-card,
+.skill-box,
+.contact-box{
+
+
+padding:22px;
+
+
+}
+
+
+
+
+
+
+
+
+/* ACHIEVEMENTS */
+
+
+.achievement-grid{
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+
+
+.achievement-card{
+
+
+flex-direction:column;
+
+
+text-align:center;
+
+
+}
+
+
+
+
+.achievement-icon{
+
+
+margin:auto;
+
+
+}
+
+
+
+
+
+
+
+
+/* GALLERY */
+
+
+.gallery{
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+
+.gallery-card img{
+
+
+height:300px;
+
+
+}
+
+
+
+
+
+
+
+/* PRIZE */
+
+
+.prize-card img{
+
+
+width:260px;
+
+
+}
+
+
+
+
+
+
+
+
+/* CONTACT */
+
+
+.contact-box p{
+
+
+font-size:15px;
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+@media(max-width:480px){
+
+
+
+.logo{
+
+
+font-size:22px;
+
+
+}
+
+
+
+
+.nav-links li{
+
+
+margin:6px;
+
+
+}
+
+
+
+.hero-right h2{
+
+
+font-size:32px;
+
+
+}
+
+
+
+.profile-image{
+
+
+width:200px;
+
+
+height:200px;
+
+
+}
+
+
+
+.section-title{
+
+
+font-size:26px;
+
+
+}
+
+
+
+.gallery-card img{
+
+
+height:220px;
+
 
 }
 
@@ -815,78 +2277,9 @@ footer hr{
 
 .prize-card img{
 
-    width:320px;
 
-    aspect-ratio:3/4;
+width:220px;
 
-    object-fit:cover;
-
-    border-radius:15px;
-
-    cursor:pointer;
-
-    transition:.4s;
-
-}
-
-
-
-.prize-card img:hover{
-
-    transform:scale(1.05);
-
-    box-shadow:
-
-    0 0 30px #ff2b2b;
-
-}
-
-
-
-/* ===========================
-   IMAGE LIGHTBOX POPUP
-=========================== */
-
-
-#lightbox{
-
-    display:none;
-
-    position:fixed;
-
-    top:0;
-
-    left:0;
-
-    width:100%;
-
-    height:100%;
-
-    background:
-
-    rgba(0,0,0,.95);
-
-    z-index:5000;
-
-    align-items:center;
-
-    justify-content:center;
-
-}
-
-
-
-#lightbox img{
-
-    max-width:90%;
-
-    max-height:90%;
-
-    border-radius:10px;
-
-    box-shadow:
-
-    0 0 40px #ff2b2b;
 
 }
 
@@ -894,17 +2287,153 @@ footer hr{
 
 #closeLightbox{
 
-    position:absolute;
 
-    top:25px;
+right:20px;
 
-    right:40px;
 
-    font-size:45px;
+font-size:40px;
 
-    color:white;
-
-    cursor:pointer;
 
 }
 
+
+
+}
+
+
+
+
+
+
+
+
+/* ===========================
+   EXTRA ANIMATIONS
+=========================== */
+
+
+
+@keyframes glowPulse{
+
+
+0%{
+
+
+opacity:.7;
+
+
+}
+
+
+
+50%{
+
+
+opacity:1;
+
+
+}
+
+
+
+100%{
+
+
+opacity:.7;
+
+
+}
+
+
+}
+
+
+
+.logo,
+.section-title,
+.hero-right h2{
+
+
+animation:
+
+glowPulse 3s infinite;
+
+
+}
+
+
+
+
+
+
+
+/* ===========================
+   PAGE LOAD EFFECT
+=========================== */
+
+
+body{
+
+
+animation:
+
+pageLoad .8s ease;
+
+
+}
+
+
+
+
+@keyframes pageLoad{
+
+
+from{
+
+
+opacity:0;
+
+
+transform:translateY(20px);
+
+
+}
+
+
+
+to{
+
+
+opacity:1;
+
+
+transform:translateY(0);
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+/* ===========================
+   HOVER CURSOR EFFECT
+=========================== */
+
+
+.btn,
+.btn2,
+.gallery-card,
+.prize-card img,
+.footer-social a{
+
+
+cursor:pointer;
+
+
+}
