@@ -1,4 +1,3 @@
-
 /* ===========================
    GOOGLE FONT
 =========================== */
@@ -24,6 +23,7 @@ body{
 /* ===========================
    NAVBAR
 =========================== */
+
 header{
     width:100%;
     position:fixed;
@@ -34,6 +34,7 @@ header{
     backdrop-filter:blur(12px);
     transition:top 0.4s ease;
 }
+
 .navbar{
     max-width:1200px;
     margin:auto;
@@ -44,7 +45,7 @@ header{
 }
 
 .logo{
-    color:#00e5ff;
+    color:#ff2b2b;
     font-size:28px;
     font-weight:700;
 }
@@ -66,19 +67,23 @@ header{
 }
 
 .nav-links a:hover{
-    color:#00e5ff;
+    color:#ff2b2b;
 }
+
 
 /* ===========================
    SECTION
 =========================== */
+
 section{
     padding:110px 8%;
 }
 
+
 /* ===========================
    HERO
 =========================== */
+
 .hero{
     min-height:100vh;
     display:flex;
@@ -95,9 +100,10 @@ section{
     object-fit:cover;
     object-position:center top;
     border-radius:50%;
-    border:5px solid #00e5ff;
-    box-shadow:0 0 40px rgba(0,229,255,.5);
+    border:5px solid #ff2b2b;
+    box-shadow:0 0 40px rgba(255,43,43,.5);
 }
+
 .hero-right{
     max-width:650px;
 }
@@ -108,7 +114,7 @@ section{
 
 .hero-right h2{
     font-size:55px;
-    color:#00e5ff;
+    color:#ff2b2b;
     margin:10px 0;
 }
 
@@ -121,9 +127,11 @@ section{
     color:#cccccc;
 }
 
+
 /* ===========================
    BUTTONS
 =========================== */
+
 .hero-buttons{
     margin-top:30px;
 }
@@ -140,43 +148,48 @@ section{
 }
 
 .btn{
-    background:#00e5ff;
+    background:#ff2b2b;
     color:#111;
 }
 
 .btn:hover{
     transform:translateY(-4px);
-    box-shadow:0 0 20px #00e5ff;
+    box-shadow:0 0 20px #ff2b2b;
 }
 
 .btn2{
-    border:2px solid #00e5ff;
+    border:2px solid #ff2b2b;
     color:white;
 }
 
 .btn2:hover{
-    background:#00e5ff;
+    background:#ff2b2b;
     color:#111;
 }
+
 
 /* ===========================
    TITLES
 =========================== */
+
 .section-title{
     text-align:center;
-    color:#00e5ff;
+    color:#ff2b2b;
     margin-bottom:50px;
     font-size:38px;
 }
 
+
 /* ===========================
    CARDS
 =========================== */
+
 .card,
 .education-card,
 .skill-box,
 .gallery-card,
 .contact-box{
+
     background:#161b22;
     border-radius:15px;
     padding:30px;
@@ -184,66 +197,96 @@ section{
     transition:.4s;
 }
 
+
 .card:hover,
 .education-card:hover,
 .skill-box:hover,
 .gallery-card:hover{
+
     transform:translateY(-8px);
-    box-shadow:0 0 25px rgba(0,229,255,.35);
+    box-shadow:0 0 25px rgba(255,43,43,.35);
+
 }
+
 
 /* ===========================
    SKILLS
 =========================== */
+
 .skills-container{
+
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:30px;
+
 }
+
 
 .skill-box h3{
-    color:#00e5ff;
+
+    color:#ff2b2b;
     margin-bottom:15px;
+
 }
+
 
 .skill-box ul{
+
     list-style:none;
+
 }
 
+
 .skill-box li{
+
     margin-bottom:10px;
+
 }
+
 
 /* ===========================
    ACHIEVEMENTS
 =========================== */
+
 .card ul{
+
     padding-left:20px;
+
 }
 
+
 .card li{
+
     margin-bottom:15px;
+
 }
+
 
 /* ===========================
    GALLERY
 =========================== */
+
 .gallery{
+
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:30px;
+
 }
 
+
 .gallery-card img{
+
     width:100%;
     height:220px;
     object-fit:cover;
     border-radius:10px;
-}
 
+}
 /* ===========================
    CONTACT
 =========================== */
+
 .contact-box{
     max-width:650px;
     margin:auto;
@@ -255,7 +298,7 @@ section{
 }
 
 .contact-box i{
-    color:#00e5ff;
+    color:#ff2b2b;
     margin-right:10px;
 }
 
@@ -265,12 +308,14 @@ section{
 }
 
 .contact-box a:hover{
-    color:#00e5ff;
+    color:#ff2b2b;
 }
+
 
 /* ===========================
    FOOTER
 =========================== */
+
 footer{
     text-align:center;
     padding:25px;
@@ -278,9 +323,11 @@ footer{
     color:#999;
 }
 
+
 /* ===========================
    RESPONSIVE
 =========================== */
+
 @media (max-width:768px){
 
 .hero{
@@ -340,73 +387,105 @@ footer{
 }
 
 }
+
+
 /* ===========================
    PROJECTS
 =========================== */
 
 .repo-card{
+
     background:#161b22;
     border:1px solid #30363d;
     border-radius:15px;
     padding:25px;
     transition:.3s;
+
 }
+
 
 .repo-card:hover{
+
     transform:translateY(-8px);
-    box-shadow:0 0 20px rgba(0,229,255,.4);
+    box-shadow:0 0 20px rgba(255,43,43,.4);
+
 }
+
 
 .repo-card h3{
-    color:#00e5ff;
+
+    color:#ff2b2b;
     margin-bottom:15px;
+
 }
+
 
 .repo-card p{
+
     color:#c9d1d9;
     margin-bottom:20px;
+
 }
 
+
 .repo-card a{
+
     display:inline-block;
     text-decoration:none;
-    background:#00e5ff;
+    background:#ff2b2b;
     color:#111;
     padding:10px 20px;
     border-radius:8px;
     font-weight:600;
+
 }
 
+
 .repo-card a:hover{
-    box-shadow:0 0 15px #00e5ff;
+
+    box-shadow:0 0 15px #ff2b2b;
+
 }
+
 
 /* ===========================
    CYBER BACKGROUND OVERLAY
 =========================== */
 
 #cyber-bg{
+
     position:fixed;
     inset:0;
     z-index:-1;
     overflow:hidden;
     pointer-events:none;
+
 }
 
+
 #matrix{
+
     width:100%;
     height:100%;
     display:block;
     opacity:.35;
-    filter:drop-shadow(0 0 6px #00e5ff);
+    filter:drop-shadow(0 0 6px #ff2b2b);
+
 }
-/* Keep all page content above the animation */
+
+
+/* Keep all page content above animation */
+
 header,
 section,
 footer{
+
     position:relative;
     z-index:2;
+
 }
+
+
 /* ===========================
    ACHIEVEMENTS
 =========================== */
@@ -414,68 +493,51 @@ footer{
 .achievement-grid{
 
     display:grid;
-
     grid-template-columns:repeat(2,1fr);
-
     gap:25px;
 
 }
 
+
 .achievement-card{
 
     display:flex;
-
     align-items:center;
-
     gap:20px;
-
     padding:28px;
-
     background:#161b22;
-
     border:1px solid #30363d;
-
     border-radius:18px;
-
     transition:.35s ease;
-
     min-height:160px;
 
 }
 
+
 .achievement-card:hover{
 
     transform:translateY(-8px);
-
     border-color:#ff2b2b;
-
-    box-shadow:0 0 30px rgba(255,0,0,.35);
+    box-shadow:0 0 30px rgba(255,43,43,.35);
 
 }
+
 
 .achievement-icon{
 
     width:70px;
-
     height:70px;
-
     min-width:70px;
-
     border-radius:50%;
-
     background:#ff2b2b;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     color:white;
-
     font-size:28px;
 
 }
+
 
 .achievement-content{
 
@@ -483,19 +545,21 @@ footer{
 
 }
 
+
 .achievement-content h3{
 
     margin-bottom:8px;
 
 }
 
+
 .achievement-content p{
 
     color:#c7c7c7;
-
     line-height:1.6;
 
 }
+
 
 /* Mobile */
 
@@ -503,11 +567,13 @@ footer{
 
 .achievement-grid{
 
-grid-template-columns:1fr;
+    grid-template-columns:1fr;
 
 }
 
 }
+
+
 /* ===========================
    FOOTER
 =========================== */
@@ -518,24 +584,32 @@ footer{
     border-top:2px solid #ff2b2b;
     text-align:center;
     padding:45px 20px;
+
 }
+
 
 .footer-content h3{
 
     color:#ff2b2b;
     font-size:28px;
     margin-bottom:10px;
+
 }
+
 
 .footer-content p{
 
     color:#bdbdbd;
+
 }
+
 
 .footer-social{
 
     margin:25px 0;
+
 }
+
 
 .footer-social a{
 
@@ -550,15 +624,19 @@ footer{
     margin:0 10px;
     font-size:22px;
     transition:.35s;
+
 }
+
 
 .footer-social a:hover{
 
     background:#ff2b2b;
     color:#fff;
     transform:translateY(-5px);
-    box-shadow:0 0 20px rgba(255,0,0,.6);
+    box-shadow:0 0 20px rgba(255,43,43,.6);
+
 }
+
 
 footer hr{
 
@@ -566,10 +644,13 @@ footer hr{
     width:80%;
     border:0;
     border-top:1px solid #333;
+
 }
+
 
 .copyright{
 
     color:#888;
     font-size:15px;
+
 }
