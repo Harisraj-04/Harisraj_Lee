@@ -5,175 +5,277 @@
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".nav-links a");
 
-window.addEventListener("scroll", () => {
 
-    let current = "";
+window.addEventListener("scroll",()=>{
 
-    sections.forEach(section => {
+let current="";
 
-        const sectionTop = section.offsetTop - 120;
 
-        if (window.pageYOffset >= sectionTop) {
-            current = section.getAttribute("id");
-        }
+sections.forEach(section=>{
 
-    });
+const sectionTop=section.offsetTop-120;
 
-    navLinks.forEach(link => {
 
-        link.classList.remove("active");
+if(window.scrollY >= sectionTop){
 
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
-        }
+current=section.getAttribute("id");
 
-    });
+}
 
 });
+
+
+navLinks.forEach(link=>{
+
+link.classList.remove("active");
+
+
+if(link.getAttribute("href")==="#"+current){
+
+link.classList.add("active");
+
+}
+
+});
+
+
+});
+
+
+
 
 
 // ===============================
 // Reveal Animation
 // ===============================
 
-const revealElements = document.querySelectorAll(
-".card,.education-card,.skill-box,.gallery-card,.contact-box,.repo-card"
+
+const revealElements=document.querySelectorAll(
+".card,.education-card,.skill-box,.gallery-card,.contact-box,.achievement-card"
 );
 
-function reveal(){
 
-    revealElements.forEach(element=>{
-
-        const revealTop=element.getBoundingClientRect().top;
-        const revealPoint=120;
-
-        if(revealTop < window.innerHeight-revealPoint){
-
-            element.style.opacity="1";
-            element.style.transform="translateY(0)";
-
-        }
-
-    });
-
-}
 
 revealElements.forEach(element=>{
 
-    element.style.opacity="0";
-    element.style.transform="translateY(40px)";
-    element.style.transition=".7s ease";
+element.style.opacity="0";
+
+element.style.transform="translateY(40px)";
+
+element.style.transition=".7s ease";
 
 });
 
+
+
+function reveal(){
+
+
+revealElements.forEach(element=>{
+
+
+const position=
+element.getBoundingClientRect().top;
+
+
+if(position < window.innerHeight-120){
+
+
+element.style.opacity="1";
+
+element.style.transform="translateY(0)";
+
+
+}
+
+
+});
+
+
+}
+
+
+
 window.addEventListener("scroll",reveal);
+
 window.addEventListener("load",reveal);
 
 
+
+
+
+
+
+
 // ===============================
-// Scroll To Top Button
+// Scroll Top Button
 // ===============================
 
+
 const topButton=document.createElement("button");
+
 
 topButton.innerHTML="↑";
 
 topButton.id="topButton";
 
+
 document.body.appendChild(topButton);
 
+
+
 Object.assign(topButton.style,{
+
 position:"fixed",
+
 bottom:"25px",
+
 right:"25px",
+
 width:"50px",
+
 height:"50px",
+
 border:"none",
+
 borderRadius:"50%",
-background:"#00e5ff",
-color:"#111",
+
+background:"#ff2b2b",
+
+color:"white",
+
 fontSize:"22px",
+
 cursor:"pointer",
+
 display:"none",
-boxShadow:"0 0 20px #00e5ff",
+
+boxShadow:"0 0 25px #ff2b2b",
+
 zIndex:"999"
+
 });
+
+
+
 
 window.addEventListener("scroll",()=>{
 
-    if(window.scrollY>350){
-        topButton.style.display="block";
-    }
-    else{
-        topButton.style.display="none";
-    }
+
+topButton.style.display =
+window.scrollY>350 ?
+"block":"none";
+
 
 });
 
+
+
 topButton.onclick=()=>{
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
 
 };
+
+
+
+
+
 
 
 // ===============================
 // Auto Hide Navbar
 // ===============================
 
-let lastScrollTop=0;
+
+let lastScroll=0;
 
 const header=document.querySelector("header");
 
+
 window.addEventListener("scroll",()=>{
 
-let scrollTop=window.pageYOffset || document.documentElement.scrollTop;
 
-if(scrollTop>lastScrollTop && scrollTop>100){
+let currentScroll=window.scrollY;
+
+
+
+if(currentScroll>lastScroll && currentScroll>100){
 
 header.style.top="-120px";
 
 }
+
 else{
 
 header.style.top="0";
 
 }
 
-lastScrollTop=scrollTop<=0?0:scrollTop;
+
+
+lastScroll=currentScroll;
+
 
 });
 
 
-// ===============================
-// Console Message
-// ===============================
-
-console.log("%cWelcome to HARISRAJ G Portfolio",
-"color:#00e5ff;font-size:18px;font-weight:bold;");
 
 
+
+
+
+
+
 // ===============================
-// CYBER BINARY RAIN BACKGROUND
+// MATRIX CYBER BACKGROUND
 // ===============================
+
 
 const canvas=document.getElementById("matrix");
 
+
 if(canvas){
+
 
 const ctx=canvas.getContext("2d");
 
+
+const fontSize=18;
+
+
+let columns;
+
+let drops=[];
+
+
+
 function resizeCanvas(){
 
+
 canvas.width=window.innerWidth;
+
 canvas.height=window.innerHeight;
 
-columns=Math.floor(canvas.width/fontSize);
+
+
+columns=Math.floor(
+canvas.width/fontSize
+);
+
+
 
 drops=[];
+
+
 
 for(let i=0;i<columns;i++){
 
@@ -181,102 +283,224 @@ drops[i]=Math.random()*-100;
 
 }
 
+
 }
 
-const fontSize=18;
 
-let columns=0;
-
-let drops=[];
 
 resizeCanvas();
 
-window.addEventListener("resize",resizeCanvas);
+
+window.addEventListener(
+"resize",
+resizeCanvas
+);
+
+
+
 
 function draw(){
 
-ctx.fillStyle="rgba(13,17,23,0.06)";
-ctx.fillRect(0,0,canvas.width,canvas.height);
 
-ctx.fillStyle="#00e5ff";
-ctx.font=fontSize+"px monospace";
+ctx.fillStyle=
+"rgba(13,17,23,0.08)";
+
+
+ctx.fillRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+
+
+ctx.fillStyle="#ff2b2b";
+
+
+ctx.font=
+fontSize+"px monospace";
+
+
 
 for(let i=0;i<drops.length;i++){
 
-const text=Math.random()>0.5?"1":"0";
+
+
+let text=
+Math.random()>0.5?"1":"0";
+
+
 
 ctx.fillText(
+
 text,
+
 i*fontSize,
+
 drops[i]*fontSize
+
 );
 
-if(drops[i]*fontSize>canvas.height){
 
-drops[i]=Math.random()*-20;
+
+if(
+drops[i]*fontSize >
+canvas.height
+){
+
+drops[i]=0;
 
 }
 
-drops[i]+=0.8+Math.random()*0.5;
+
+
+drops[i]+=1;
 
 }
+
+
 
 requestAnimationFrame(draw);
 
+
 }
+
+
 
 draw();
 
+
 }
+
+
+
+
+
+
+
+
+
 // ===============================
-// Certificate Lightbox
+// CERTIFICATE + PRIZE LIGHTBOX
 // ===============================
 
-const galleryLinks = document.querySelectorAll(".gallery-card a");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightboxImg");
-const closeLightbox = document.getElementById("closeLightbox");
 
-galleryLinks.forEach(link => {
+const popupImages=document.querySelectorAll(
 
-    link.addEventListener("click", function(e) {
+".gallery-card img, .prize-card img"
 
-        e.preventDefault();
+);
 
-        lightbox.style.display = "flex";
-        lightboxImg.src = this.href;
 
-        document.body.style.overflow = "hidden";
 
-    });
+const lightbox=
+document.getElementById("lightbox");
+
+
+const lightboxImg=
+document.getElementById("lightbox-img");
+
+
+const closeLightbox=
+document.getElementById("closeLightbox");
+
+
+
+
+popupImages.forEach(img=>{
+
+
+img.addEventListener("click",()=>{
+
+
+lightbox.style.display="flex";
+
+
+lightboxImg.src=img.src;
+
+
+document.body.style.overflow="hidden";
+
+
+});
+
 
 });
 
-closeLightbox.addEventListener("click", () => {
 
-    lightbox.style.display = "none";
-    document.body.style.overflow = "auto";
+
+
+
+
+closeLightbox.onclick=()=>{
+
+
+lightbox.style.display="none";
+
+
+document.body.style.overflow="auto";
+
+
+};
+
+
+
+
+
+
+lightbox.onclick=(e)=>{
+
+
+if(e.target===lightbox){
+
+
+lightbox.style.display="none";
+
+
+document.body.style.overflow="auto";
+
+
+}
+
+
+};
+
+
+
+
+
+
+document.addEventListener("keydown",(e)=>{
+
+
+if(e.key==="Escape"){
+
+
+lightbox.style.display="none";
+
+
+document.body.style.overflow="auto";
+
+
+}
+
 
 });
 
-lightbox.addEventListener("click", function(e) {
 
-    if (e.target === lightbox) {
 
-        lightbox.style.display = "none";
-        document.body.style.overflow = "auto";
 
-    }
 
-});
 
-document.addEventListener("keydown", function(e) {
 
-    if (e.key === "Escape") {
 
-        lightbox.style.display = "none";
-        document.body.style.overflow = "auto";
+// ===============================
+// Console Message
+// ===============================
 
-    }
 
-});
+console.log(
+"%cWelcome to HARISRAJ G Portfolio",
+"color:#ff2b2b;font-size:18px;font-weight:bold;"
+);
