@@ -389,17 +389,17 @@ footer{
     position:fixed;
     inset:0;
     z-index:-1;
-    pointer-events:none;
     overflow:hidden;
+    pointer-events:none;
 }
 
 #matrix{
     width:100%;
     height:100%;
     display:block;
-    opacity:0.22;
+    opacity:.35;
+    filter:drop-shadow(0 0 6px #00e5ff);
 }
-
 /* Keep all page content above the animation */
 header,
 section,
