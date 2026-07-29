@@ -504,3 +504,45 @@ console.log(
 "%cWelcome to HARISRAJ G Portfolio",
 "color:#ff2b2b;font-size:18px;font-weight:bold;"
 );
+// ================= VAULT =================
+
+const answer = "HTTPS";
+
+const unlockBtn = document.getElementById("unlockBtn");
+
+unlockBtn.addEventListener("click", () => {
+
+    const userAnswer = document
+        .getElementById("vaultPassword")
+        .value
+        .trim()
+        .toUpperCase();
+
+    if (userAnswer === answer) {
+
+        document.getElementById("vault").style.opacity = "0";
+
+        setTimeout(() => {
+
+            document.getElementById("vault").style.display = "none";
+            document.getElementById("portfolioContent").style.display = "block";
+
+        }, 700);
+
+    } else {
+
+        document.getElementById("vaultMessage").innerHTML =
+            "❌ Incorrect Answer";
+
+    }
+
+});
+
+document.getElementById("vaultPassword")
+.addEventListener("keypress", function(e){
+
+    if(e.key === "Enter"){
+        unlockBtn.click();
+    }
+
+});
