@@ -504,45 +504,38 @@ console.log(
 "%cWelcome to HARISRAJ G Portfolio",
 "color:#ff2b2b;font-size:18px;font-weight:bold;"
 );
-// ================= VAULT =================
+document.addEventListener("DOMContentLoaded", function () {
 
-const answer = "HTTPS";
+    const unlockBtn = document.getElementById("unlockBtn");
+    const passwordBox = document.getElementById("vaultPassword");
+    const message = document.getElementById("vaultMessage");
 
-const unlockBtn = document.getElementById("unlockBtn");
+    const answer = "HTTPS";
 
-unlockBtn.addEventListener("click", () => {
+    unlockBtn.addEventListener("click", function () {
 
-    const userAnswer = document
-        .getElementById("vaultPassword")
-        .value
-        .trim()
-        .toUpperCase();
+        const entered = passwordBox.value.trim().toUpperCase();
 
-    if (userAnswer === answer) {
+        if (entered === answer) {
 
-        document.getElementById("vault").style.opacity = "0";
+            message.style.color = "#00ff66";
+            message.innerHTML = "✔ ACCESS GRANTED";
 
-        setTimeout(() => {
+            setTimeout(function () {
 
-            document.getElementById("vault").style.display = "none";
-            document.getElementById("portfolioContent").style.display = "block";
+                document.getElementById("vault").style.display = "none";
+                document.getElementById("portfolioContent").style.display = "block";
 
-        }, 700);
+            }, 1200);
 
-    } else {
+        } else {
 
-        document.getElementById("vaultMessage").innerHTML =
-            "❌ Incorrect Answer";
+            message.style.color = "#ff2b2b";
+            message.innerHTML =
+            "🚫 ACCESS DENIED<br>Sorry! Secure Vault Locked.";
 
-    }
+        }
 
-});
-
-document.getElementById("vaultPassword")
-.addEventListener("keypress", function(e){
-
-    if(e.key === "Enter"){
-        unlockBtn.click();
-    }
+    });
 
 });
