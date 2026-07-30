@@ -6,62 +6,92 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HARISRAJ G | Cybersecurity Portfolio</title>
+<title>Harisraj G H | Cybersecurity Portfolio</title>
 
-<link rel="icon" href="title.jpg">
+<meta name="description"
+content="Cybersecurity Student | Ethical Hacker | Penetration Tester">
 
-<link rel="stylesheet" href="style.css">
+<link rel="icon" href="images/favicon.png">
+
+<!-- Google Fonts -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<!-- CSS -->
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
 
 </head>
 
 <body>
 
-<!-- ===================================== -->
-<!-- LOADING / HACKER INTRO -->
-<!-- ===================================== -->
+<!--==============================
+SCROLL PROGRESS
+===============================-->
+
+<div id="scroll-progress"></div>
+
+<!--==============================
+BOOT SCREEN
+===============================-->
 
 <div id="boot-screen">
 
-<canvas id="bootMatrix"></canvas>
+<canvas id="matrixCanvas"></canvas>
 
-<div class="boot-overlay">
+<div class="boot-container">
 
-<div class="terminal-window">
+<h1 class="boot-title">
+Threat Detection System
+</h1>
 
-<div class="terminal-header">
+<div class="boot-progress-wrapper">
 
-<div class="dot red"></div>
-<div class="dot yellow"></div>
-<div class="dot green"></div>
+<div class="boot-progress-track">
 
-<span>Threat Detection System</span>
-
-</div>
-
-<div class="terminal-body">
-
-<p>> Initializing Secure Environment...</p>
-
-<p>> Loading Security Modules...</p>
-
-<p>> Checking Visitor Identity...</p>
-
-<div class="progress-container">
-
-<div id="progressBar"></div>
+<div id="boot-progress"></div>
 
 </div>
 
-<div id="typingText"></div>
+<span id="boot-percentage">0%</span>
+
+</div>
+
+<div class="boot-text">
+
+<p>████████████████████████████</p>
+
+<p>Scanning Visitor...</p>
+
+<p>Loading Secure Environment...</p>
+
+<p class="warning">
+
+WARNING
+
+</p>
+
+<p>Unauthorized Access Detected</p>
+
+<p>Identity Verified</p>
+
+<p class="success">
+
+Welcome...
+
+</p>
+
+<p>Launching Portfolio...</p>
 
 </div>
 
@@ -69,23 +99,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 </div>
 
-</div>
+<!--==============================
+MAIN CONTENT
+===============================-->
 
-<!-- ===================================== -->
-<!-- MAIN PORTFOLIO -->
-<!-- ===================================== -->
+<div id="main-content" class="hidden">
 
-<div id="portfolio">
-
-<div id="aurora-bg">
-
-<div class="gradient one"></div>
-
-<div class="gradient two"></div>
-
-<div class="gradient three"></div>
-
-</div>
+<!--==============================
+HEADER
+===============================-->
 
 <header>
 
@@ -93,70 +115,139 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <div class="logo">
 
-HARISRAJ G
+HARISRAJ
+
+<span>GH</span>
 
 </div>
 
 <ul class="nav-links">
 
-<li><a href="#home">Home</a></li>
+<li>
 
-<li><a href="#about">About</a></li>
+<a href="#home" class="active">
 
-<li><a href="#education">Education</a></li>
+Home
 
-<li><a href="#skills">Skills</a></li>
+</a>
 
-<li><a href="#achievements">Achievements</a></li>
+</li>
 
-<li><a href="#certificates">Certificates</a></li>
+<li>
 
-<li><a href="#prize">Prize</a></li>
+<a href="#about">
 
-<li><a href="#contact">Contact</a></li>
+About
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#education">
+
+Education
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#skills">
+
+Skills
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#achievements">
+
+Achievements
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#certificates">
+
+Certificates
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#prize">
+
+Prize
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#contact">
+
+Contact
+
+</a>
+
+</li>
 
 </ul>
+
+<div class="menu-toggle">
+
+<span></span>
+
+<span></span>
+
+<span></span>
+
+</div>
 
 </nav>
 
 </header>
 
-<!-- ===================================== -->
-<!-- HOME -->
-<!-- ===================================== -->
+<!--==============================
+HOME
+===============================-->
 
-<section id="home" class="hero">
+<section
+id="home"
+class="hero">
 
-<div class="hero-left">
+<div class="hero-left reveal">
 
-<div class="profile-wrapper">
+<p class="hero-small">
 
-<img
-src="profile.jpg"
-class="profile-image"
-alt="Profile">
-
-<div class="profile-ring"></div>
-
-</div>
-
-</div>
-
-<div class="hero-right">
-
-<p class="small-title">
-
-CYBERSECURITY PORTFOLIO
+HELLO, I'M
 
 </p>
 
 <h1>
 
-HARISRAJ G
+HARISRAJ
+
+<span>
+
+G H
+
+</span>
 
 </h1>
 
-<h2>
+<h2 class="typing">
 
 Cybersecurity Student
 
@@ -164,40 +255,47 @@ Cybersecurity Student
 
 <p class="hero-description">
 
-Third-Year Computer Science and Engineering
-(Cybersecurity) student passionate about
-information security, ethical hacking,
-digital forensics and secure software
-development.
+Passionate Cybersecurity Student dedicated to
+Ethical Hacking, Penetration Testing,
+Digital Forensics, Network Security,
+and Secure Software Development.
 
-I continuously improve my technical
-knowledge by building projects,
-participating in cybersecurity
-competitions and exploring emerging
-technologies.
+I enjoy solving security challenges,
+participating in Capture The Flag (CTF)
+competitions, and continuously expanding
+my knowledge in offensive and defensive
+cybersecurity.
 
 </p>
 
 <div class="hero-buttons">
 
-<a
-href="https://github.com/Pikachu-lee"
-target="_blank"
-class="btn">
-
-<i class="fab fa-github"></i>
-
-GitHub
-
-</a>
-
-<a
-href="#contact"
-class="btn-outline">
+<a href="#contact" class="btn">
 
 Contact Me
 
 </a>
+
+<a href="#certificates"
+class="btn secondary">
+
+Certificates
+
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-right reveal">
+
+<div class="hero-image">
+
+<img
+src="images/profile.png"
+alt="Harisraj">
+
+<div class="glow-ring"></div>
 
 </div>
 
@@ -205,9 +303,12 @@ Contact Me
 
 </section>
 
-<!-- ===================================== -->
-<!-- ABOUT -->
-<!-- ===================================== -->
+<!--==============================
+PART 2 STARTS HERE
+===============================-->
+    <!--==============================
+ABOUT
+===============================-->
 
 <section id="about">
 
@@ -216,33 +317,32 @@ Contact Me
 <p>Know More</p>
 
 <h2>
-
 ABOUT ME
-
 </h2>
 
 </div>
 
-<div class="glass-card">
+
+<div class="glass-card reveal">
 
 <p>
 
-I am HARISRAJ G,
+I am HARISRAJ G H,
 a third-year B.E Computer Science and
-Engineering (Cybersecurity) student
-at PSNA College of Engineering
-and Technology.
+Engineering (Cybersecurity) student.
 
-I enjoy learning cybersecurity concepts
-including ethical hacking,
-digital forensics,
-secure programming,
-Linux environments and
-network security.
+I am passionate about cybersecurity,
+ethical hacking, penetration testing,
+digital forensics, secure programming,
+Linux environments and network security.
 
-My goal is to continuously improve my
-technical knowledge and develop practical
-skills that contribute to building
+I continuously improve my technical
+skills through hands-on projects,
+Capture The Flag (CTF) competitions,
+security research and practical learning.
+
+My goal is to become a skilled cybersecurity
+professional and contribute towards building
 secure digital systems.
 
 </p>
@@ -251,25 +351,31 @@ secure digital systems.
 
 </section>
 
-<!-- ===================================== -->
-<!-- EDUCATION -->
-<!-- ===================================== -->
+
+
+<!--==============================
+EDUCATION
+===============================-->
 
 <section id="education">
 
+
 <div class="section-heading">
 
-<p>Academic Journey</p>
+<p>
+Academic Journey
+</p>
 
 <h2>
-
 EDUCATION
-
 </h2>
 
 </div>
 
-<div class="education-card">
+
+
+<div class="education-card reveal">
+
 
 <div class="edu-icon">
 
@@ -277,7 +383,10 @@ EDUCATION
 
 </div>
 
+
+
 <div class="edu-content">
+
 
 <h3>
 
@@ -286,11 +395,13 @@ and Technology
 
 </h3>
 
+
 <p>
 
 Bachelor of Engineering
 
 </p>
+
 
 <p>
 
@@ -299,6 +410,7 @@ Computer Science and Engineering
 
 </p>
 
+
 <p>
 
 Current Year :
@@ -306,32 +418,49 @@ III Year
 
 </p>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 </section>
 
-<!-- ========================= -->
-<!-- PART 2 STARTS HERE -->
-<!-- Skills Section -->
-<!-- ===================================== -->
-<!-- SKILLS -->
-<!-- ===================================== -->
+
+
+
+
+<!--==============================
+SKILLS
+===============================-->
+
 
 <section id="skills">
 
+
 <div class="section-heading">
 
-<p>Technical Expertise</p>
 
-<h2>SKILLS</h2>
+<p>
+Technical Expertise
+</p>
+
+
+<h2>
+SKILLS
+</h2>
+
 
 </div>
 
+
+
 <div class="skills-container">
 
-<div class="skill-box">
+
+<div class="skill-box reveal">
+
 
 <div class="skill-icon">
 
@@ -339,20 +468,47 @@ III Year
 
 </div>
 
-<h3>Programming</h3>
+
+<h3>
+Programming
+</h3>
+
+
 
 <div class="skill-tags">
 
-<span>Python</span>
-<span>C++</span>
-<span>Java</span>
-<span>JavaScript</span>
+
+<span>
+Python
+</span>
+
+
+<span>
+C++
+</span>
+
+
+<span>
+Java
+</span>
+
+
+<span>
+JavaScript
+</span>
+
 
 </div>
 
+
 </div>
 
-<div class="skill-box">
+
+
+
+
+<div class="skill-box reveal">
+
 
 <div class="skill-icon">
 
@@ -360,128 +516,279 @@ III Year
 
 </div>
 
-<h3>Cybersecurity</h3>
+
+
+<h3>
+Cybersecurity
+</h3>
+
 
 <div class="skill-tags">
 
-<span>Ethical Hacking</span>
-<span>Network Security</span>
-<span>Linux</span>
-<span>Digital Forensics</span>
-<span>Cryptography</span>
-<span>Secure Coding</span>
-<span>Vulnerability Assessment</span>
+
+<span>
+Ethical Hacking
+</span>
+
+
+<span>
+Network Security
+</span>
+
+
+<span>
+Linux
+</span>
+
+
+<span>
+Digital Forensics
+</span>
+
+
+<span>
+Cryptography
+</span>
+
+
+<span>
+Secure Coding
+</span>
+
+
+<span>
+Vulnerability Assessment
+</span>
+
+
+<span>
+CTF
+</span>
+
 
 </div>
 
-</div>
 
 </div>
+
+
+
+</div>
+
 
 </section>
 
 
 
-<!-- ===================================== -->
-<!-- CONSISTENCY ANIMATION -->
-<!-- ===================================== -->
+
+
+<!--==============================
+CONSISTENCY ANIMATION
+===============================-->
+
 
 <section id="consistency">
 
+
 <div class="section-heading">
 
-<p>Growth Mindset</p>
 
-<h2>CONSISTENCY</h2>
+<p>
+Growth Mindset
+</p>
+
+
+<h2>
+CONSISTENCY
+</h2>
+
 
 </div>
+
+
 
 <div class="consistency-container">
 
+
+
 <div class="steps">
 
-<div class="step">Learn</div>
 
-<div class="step">Practice</div>
+<div class="step">
+Learn
+</div>
 
-<div class="step">Build</div>
 
-<div class="step">Compete</div>
+<div class="step">
+Practice
+</div>
 
-<div class="step">Achieve</div>
+
+<div class="step">
+Build
+</div>
+
+
+<div class="step">
+Compete
+</div>
+
+
+<div class="step">
+Achieve
+</div>
+
 
 </div>
 
+
+
+
+
 <div class="stickman-area">
+
 
 <svg id="stickmanSVG"
 width="700"
 height="300"
 viewBox="0 0 700 300">
 
-<!-- Steps -->
 
-<rect x="100" y="240" width="90" height="18" rx="5"/>
 
-<rect x="190" y="210" width="90" height="18" rx="5"/>
+<rect x="100" y="240"
+width="90"
+height="18"
+rx="5"/>
 
-<rect x="280" y="180" width="90" height="18" rx="5"/>
 
-<rect x="370" y="150" width="90" height="18" rx="5"/>
+<rect x="190" y="210"
+width="90"
+height="18"
+rx="5"/>
 
-<rect x="460" y="120" width="90" height="18" rx="5"/>
+
+<rect x="280" y="180"
+width="90"
+height="18"
+rx="5"/>
+
+
+<rect x="370" y="150"
+width="90"
+height="18"
+rx="5"/>
+
+
+<rect x="460" y="120"
+width="90"
+height="18"
+rx="5"/>
+
+
+
 
 <g id="stickman">
 
-<circle cx="120" cy="215" r="10"/>
 
-<line x1="120" y1="225" x2="120" y2="255"/>
+<circle cx="120"
+cy="215"
+r="10"/>
 
-<line x1="120" y1="235" x2="105" y2="245"/>
 
-<line x1="120" y1="235" x2="135" y2="245"/>
+<line x1="120"
+y1="225"
+x2="120"
+y2="255"/>
 
-<line x1="120" y1="255" x2="108" y2="275"/>
 
-<line x1="120" y1="255" x2="132" y2="275"/>
+<line x1="120"
+y1="235"
+x2="105"
+y2="245"/>
+
+
+<line x1="120"
+y1="235"
+x2="135"
+y2="245"/>
+
+
+<line x1="120"
+y1="255"
+x2="108"
+y2="275"/>
+
+
+<line x1="120"
+y1="255"
+x2="132"
+y2="275"/>
+
 
 </g>
 
+
+
 </svg>
 
+
 </div>
+
+
 
 <p class="consistency-text">
 
+
 Consistency creates mastery.
+
+<br>
 
 Small progress every day leads to extraordinary results.
 
+
 </p>
 
+
+
 </div>
+
 
 </section>
 
 
 
-<!-- ===================================== -->
-<!-- ACHIEVEMENTS -->
-<!-- ===================================== -->
+
+
+<!--==============================
+ACHIEVEMENTS
+===============================-->
+
 
 <section id="achievements">
 
+
 <div class="section-heading">
 
-<p>Milestones</p>
 
-<h2>ACHIEVEMENTS</h2>
+<p>
+Milestones
+</p>
+
+
+<h2>
+ACHIEVEMENTS
+</h2>
+
 
 </div>
 
+
+
 <div class="achievement-grid">
 
-<div class="achievement-card">
+
+<div class="achievement-card reveal">
+
 
 <div class="achievement-icon">
 
@@ -489,17 +796,28 @@ Small progress every day leads to extraordinary results.
 
 </div>
 
-<h3>Competition Winner</h3>
+
+<h3>
+Competition Winner
+</h3>
+
 
 <p>
 
-Won First Prize in two offline Cybersecurity Competitions.
+Won First Prize in two offline
+Cybersecurity Competitions.
 
 </p>
 
+
 </div>
 
-<div class="achievement-card">
+
+
+
+
+<div class="achievement-card reveal">
+
 
 <div class="achievement-icon">
 
@@ -507,17 +825,28 @@ Won First Prize in two offline Cybersecurity Competitions.
 
 </div>
 
-<h3>Capture The Flag</h3>
+
+<h3>
+Capture The Flag
+</h3>
+
 
 <p>
 
-Participated in multiple Online & Offline CTF Competitions.
+Participated in multiple
+Online and Offline CTF competitions.
 
 </p>
 
+
 </div>
 
-<div class="achievement-card">
+
+
+
+
+<div class="achievement-card reveal">
+
 
 <div class="achievement-icon">
 
@@ -525,17 +854,28 @@ Participated in multiple Online & Offline CTF Competitions.
 
 </div>
 
-<h3>Team Collaboration</h3>
+
+<h3>
+Team Collaboration
+</h3>
+
 
 <p>
 
-Worked with cybersecurity teams in penetration testing and challenges.
+Worked with cybersecurity teams
+in penetration testing and challenges.
 
 </p>
 
+
 </div>
 
-<div class="achievement-card">
+
+
+
+
+<div class="achievement-card reveal">
+
 
 <div class="achievement-icon">
 
@@ -543,7 +883,11 @@ Worked with cybersecurity teams in penetration testing and challenges.
 
 </div>
 
-<h3>Cybersecurity Skills</h3>
+
+<h3>
+Cybersecurity Skills
+</h3>
+
 
 <p>
 
@@ -553,162 +897,307 @@ Network Security and Ethical Hacking.
 
 </p>
 
-</div>
 
 </div>
+
+
+
+</div>
+
 
 </section>
 
-<!-- ===================================== -->
-<!-- PART 3 STARTS HERE -->
-<!-- Certificates -->
-    <!-- ===================================== -->
-<!-- CERTIFICATES -->
-<!-- ===================================== -->
+
+
+<!--==============================
+PART 3 STARTS HERE
+===============================-->
+    <!--==============================
+CERTIFICATES
+===============================-->
 
 <section id="certificates">
 
-    <div class="section-heading">
-
-        <p>Professional Credentials</p>
-
-        <h2>CERTIFICATES</h2>
-
-    </div>
-
-    <div class="gallery">
-
-        <div class="gallery-card">
-            <img src="certificate1.jpg" alt="Certificate 1">
-            <div class="gallery-overlay">
-                <h3>Certificate 01</h3>
-                <p>View Certificate</p>
-            </div>
-        </div>
-
-        <div class="gallery-card">
-            <img src="certificate2.jpg" alt="Certificate 2">
-            <div class="gallery-overlay">
-                <h3>Certificate 02</h3>
-                <p>View Certificate</p>
-            </div>
-        </div>
-
-        <div class="gallery-card">
-            <img src="certificate3.jpg" alt="Certificate 3">
-            <div class="gallery-overlay">
-                <h3>Certificate 03</h3>
-                <p>View Certificate</p>
-            </div>
-        </div>
-
-        <div class="gallery-card">
-            <img src="certificate4.jpg" alt="Certificate 4">
-            <div class="gallery-overlay">
-                <h3>Certificate 04</h3>
-                <p>View Certificate</p>
-            </div>
-        </div>
-
-        <div class="gallery-card">
-            <img src="certificate5.jpg" alt="Certificate 5">
-            <div class="gallery-overlay">
-                <h3>Certificate 05</h3>
-                <p>View Certificate</p>
-            </div>
-        </div>
-
-        <div class="gallery-card">
-            <img src="certificate6.jpg" alt="Certificate 6">
-            <div class="gallery-overlay">
-                <h3>Certificate 06</h3>
-                <p>View Certificate</p>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ===================================== -->
-<!-- PRIZE -->
-<!-- ===================================== -->
-
-<section id="prize">
 
 <div class="section-heading">
 
-<p>Recognition</p>
+<p>
+Professional Credentials
+</p>
 
 <h2>
-
-COMPETITION PRIZE
-
+CERTIFICATES
 </h2>
 
 </div>
 
-<div class="prize-container">
 
-<div class="prize-card">
 
-<img
-src="prize.jpg"
-alt="Competition Prize">
+<div class="gallery">
 
-<div class="prize-overlay">
+
+
+<div class="gallery-card reveal">
+
+<img src="certificate1.jpg"
+alt="Certificate 1">
+
+
+<div class="gallery-overlay">
 
 <h3>
-
-Competition Winner
-
+Certificate 01
 </h3>
 
 <p>
-
-First Prize
-
+View Certificate
 </p>
 
 </div>
 
 </div>
 
+
+
+
+
+<div class="gallery-card reveal">
+
+<img src="certificate2.jpg"
+alt="Certificate 2">
+
+
+<div class="gallery-overlay">
+
+<h3>
+Certificate 02
+</h3>
+
+<p>
+View Certificate
+</p>
+
 </div>
+
+</div>
+
+
+
+
+
+<div class="gallery-card reveal">
+
+<img src="certificate3.jpg"
+alt="Certificate 3">
+
+
+<div class="gallery-overlay">
+
+<h3>
+Certificate 03
+</h3>
+
+<p>
+View Certificate
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="gallery-card reveal">
+
+<img src="certificate4.jpg"
+alt="Certificate 4">
+
+
+<div class="gallery-overlay">
+
+<h3>
+Certificate 04
+</h3>
+
+<p>
+View Certificate
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="gallery-card reveal">
+
+<img src="certificate5.jpg"
+alt="Certificate 5">
+
+
+<div class="gallery-overlay">
+
+<h3>
+Certificate 05
+</h3>
+
+<p>
+View Certificate
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="gallery-card reveal">
+
+<img src="certificate6.jpg"
+alt="Certificate 6">
+
+
+<div class="gallery-overlay">
+
+<h3>
+Certificate 06
+</h3>
+
+<p>
+View Certificate
+</p>
+
+</div>
+
+</div>
+
+
+
+</div>
+
 
 </section>
 
 
 
-<!-- ===================================== -->
-<!-- CONTACT -->
-<!-- ===================================== -->
 
-<section id="contact">
+
+<!--==============================
+PRIZE
+===============================-->
+
+
+<section id="prize">
+
 
 <div class="section-heading">
 
-<p>Get In Touch</p>
+
+<p>
+Recognition
+</p>
+
 
 <h2>
-
-CONTACT
-
+COMPETITION PRIZE
 </h2>
+
 
 </div>
 
+
+
+
+<div class="prize-container">
+
+
+<div class="prize-card reveal">
+
+
+<img src="prize.jpg"
+alt="Competition Prize">
+
+
+
+<div class="prize-overlay">
+
+
+<h3>
+Competition Winner
+</h3>
+
+
+<p>
+First Prize
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!--==============================
+CONTACT
+===============================-->
+
+
+<section id="contact">
+
+
+<div class="section-heading">
+
+
+<p>
+Get In Touch
+</p>
+
+
+<h2>
+CONTACT
+</h2>
+
+
+</div>
+
+
+
+
+
 <div class="contact-box">
+
+
+
+
 
 <div class="contact-item">
 
+
 <i class="fas fa-envelope"></i>
+
 
 <div>
 
-<h3>Email</h3>
+<h3>
+Email
+</h3>
+
 
 <a href="mailto:harisrajganesan11@gmail.com">
 
@@ -716,17 +1205,28 @@ harisrajganesan11@gmail.com
 
 </a>
 
-</div>
 
 </div>
+
+
+</div>
+
+
+
+
 
 <div class="contact-item">
 
+
 <i class="fas fa-phone"></i>
+
 
 <div>
 
-<h3>Phone</h3>
+<h3>
+Phone
+</h3>
+
 
 <a href="tel:+919042404948">
 
@@ -734,79 +1234,123 @@ harisrajganesan11@gmail.com
 
 </a>
 
-</div>
 
 </div>
+
+
+</div>
+
+
+
+
 
 <div class="contact-item">
 
+
 <i class="fab fa-github"></i>
+
 
 <div>
 
-<h3>GitHub</h3>
+<h3>
+GitHub
+</h3>
 
-<a href="https://github.com/Pikachu-lee" target="_blank">
+
+<a href="https://github.com/Pikachu-lee"
+target="_blank">
 
 github.com/Pikachu-lee
 
 </a>
 
-</div>
 
 </div>
+
+
+</div>
+
+
+
+
 
 <div class="contact-item">
 
+
 <i class="fab fa-linkedin"></i>
+
 
 <div>
 
-<h3>LinkedIn</h3>
+<h3>
+LinkedIn
+</h3>
 
-<a href="https://www.linkedin.com/in/harisraj-g-b91763339" target="_blank">
+
+<a href="https://www.linkedin.com/in/harisraj-g-b91763339"
+target="_blank">
 
 linkedin.com/in/harisraj-g
 
 </a>
 
-</div>
 
 </div>
+
+
+</div>
+
+
+
 
 <div class="hero-buttons">
 
-<a
-href="mailto:harisrajganesan11@gmail.com?subject=Portfolio%20Contact"
+
+<a href="mailto:harisrajganesan11@gmail.com"
 class="btn">
+
 
 <i class="fas fa-paper-plane"></i>
 
 Send Email
 
+
 </a>
 
-</div>
 
 </div>
+
+
+
+
+</div>
+
 
 </section>
 
 
 
-<!-- ===================================== -->
-<!-- FOOTER -->
-<!-- ===================================== -->
+
+
+
+<!--==============================
+FOOTER
+===============================-->
+
 
 <footer>
 
+
 <div class="footer-content">
+
 
 <h2>
 
 HARISRAJ G
 
 </h2>
+
+
 
 <p>
 
@@ -815,19 +1359,31 @@ Digital Forensics • Secure Development
 
 </p>
 
+
+
+
 <div class="footer-social">
 
-<a href="https://github.com/Pikachu-lee" target="_blank">
+
+<a href="https://github.com/Pikachu-lee"
+target="_blank">
 
 <i class="fab fa-github"></i>
 
 </a>
 
-<a href="https://www.linkedin.com/in/harisraj-g-b91763339" target="_blank">
+
+
+
+<a href="https://www.linkedin.com/in/harisraj-g-b91763339"
+target="_blank">
 
 <i class="fab fa-linkedin"></i>
 
 </a>
+
+
+
 
 <a href="mailto:harisrajganesan11@gmail.com">
 
@@ -835,9 +1391,15 @@ Digital Forensics • Secure Development
 
 </a>
 
+
 </div>
 
+
+
+
 <hr>
+
+
 
 <p>
 
@@ -847,17 +1409,26 @@ All Rights Reserved.
 
 </p>
 
+
+
 </div>
+
 
 </footer>
 
 
 
-<!-- ===================================== -->
-<!-- IMAGE LIGHTBOX -->
-<!-- ===================================== -->
+
+
+
+
+<!--==============================
+IMAGE LIGHTBOX
+===============================-->
+
 
 <div id="lightbox">
+
 
 <span id="closeLightbox">
 
@@ -865,50 +1436,73 @@ All Rights Reserved.
 
 </span>
 
-<img
-id="lightbox-img"
+
+
+<img id="lightbox-img"
 src=""
-alt="Preview">
+alt="Certificate Preview">
+
 
 </div>
 
 
 
-<!-- ===================================== -->
-<!-- CURSOR GLOW -->
-<!-- ===================================== -->
+
+
+
+<!--==============================
+CURSOR GLOW
+===============================-->
+
 
 <div id="cursorGlow"></div>
 
 
 
-<!-- ===================================== -->
-<!-- SCROLL PROGRESS -->
-<!-- ===================================== -->
+
+
+
+<!--==============================
+SCROLL PROGRESS
+===============================-->
+
 
 <div id="progressLine"></div>
 
 
 
-<!-- ===================================== -->
-<!-- BACK TO TOP -->
-<!-- ===================================== -->
+
+
+
+<!--==============================
+BACK TO TOP
+===============================-->
+
 
 <button id="topButton">
 
+
 <i class="fas fa-chevron-up"></i>
+
 
 </button>
 
 
 
-<!-- ===================================== -->
-<!-- JAVASCRIPT -->
-<!-- ===================================== -->
+
+
+
+<!--==============================
+JAVASCRIPT
+===============================-->
+
 
 <script src="script.js"></script>
 
+
+
 </div>
+
 
 </body>
 
