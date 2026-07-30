@@ -1,6 +1,6 @@
 /*=========================================================
     PREMIUM CYBERSECURITY PORTFOLIO
-    SCRIPT.JS
+    SCRIPT.JS (PART 1)
 =========================================================*/
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -23,6 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             progress.style.width = value + "%";
 
+            const percentage = document.getElementById("boot-percentage");
+
+            if (percentage)
+                percentage.textContent = value + "%";
+
             if (value >= 100) {
 
                 clearInterval(loader);
@@ -39,6 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
         }, 35);
+
+    } else {
+
+        console.warn("Boot screen elements not found.");
 
     }
 
@@ -82,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 setTimeout(typeEffect, 1500);
 
                 return;
+
             }
 
         } else {
@@ -97,6 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (wordIndex >= words.length)
                     wordIndex = 0;
+
             }
 
         }
@@ -113,23 +124,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const revealItems = document.querySelectorAll(".reveal");
 
-    const observer = new IntersectionObserver((entries) => {
+    if ("IntersectionObserver" in window) {
 
-        entries.forEach(entry => {
+        const observer = new IntersectionObserver((entries) => {
 
-            if (entry.isIntersecting) {
+            entries.forEach(entry => {
 
-                entry.target.classList.add("active");
+                if (entry.isIntersecting) {
 
-            }
+                    entry.target.classList.add("active");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        }, {
+            threshold: 0.15
+        });
+
+        revealItems.forEach(item => observer.observe(item));
+
+    } else {
+
+        revealItems.forEach(item => {
+
+            item.classList.add("active");
 
         });
 
-    }, {
-        threshold: .15
-    });
-
-    revealItems.forEach(item => observer.observe(item));
+    }
 
     /*=========================================
         ACTIVE NAVIGATION
@@ -139,37 +164,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const navLinks = document.querySelectorAll(".nav-links a");
 
-    window.addEventListener("scroll", () => {
+    if (sections.length && navLinks.length) {
 
-        let current = "";
+        window.addEventListener("scroll", () => {
 
-        sections.forEach(sec => {
+            let current = "";
 
-            const top = window.scrollY;
+            sections.forEach(section => {
 
-            const offset = sec.offsetTop - 150;
+                const offset = section.offsetTop - 140;
+                const height = section.offsetHeight;
 
-            const height = sec.offsetHeight;
+                if (
+                    window.scrollY >= offset &&
+                    window.scrollY < offset + height
+                ) {
 
-            if (top >= offset && top < offset + height) {
+                    current = section.id;
 
-                current = sec.getAttribute("id");
+                }
 
-            }
+            });
+
+            navLinks.forEach(link => {
+
+                link.classList.remove("active");
+
+                if (link.getAttribute("href") === "#" + current) {
+
+                    link.classList.add("active");
+
+                }
+
+            });
 
         });
 
-        navLinks.forEach(link => {
-
-            link.classList.remove("active");
-
-            if (link.getAttribute("href") === "#" + current)
-
-                link.classList.add("active");
-
-        });
-
-    });
+    }
 
     /*=========================================
         NAVBAR BLUR
@@ -177,17 +208,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const header = document.querySelector("header");
 
-    window.addEventListener("scroll", () => {
+    if (header) {
 
-        if (window.scrollY > 80)
+        window.addEventListener("scroll", () => {
 
-            header.classList.add("scrolled");
+            if (window.scrollY > 80) {
 
-        else
+                header.classList.add("scrolled");
 
-            header.classList.remove("scrolled");
+            } else {
 
-    });
+                header.classList.remove("scrolled");
+
+            }
+
+        });
+
+    }
 
     /*=========================================
         MOBILE MENU
@@ -197,21 +234,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const nav = document.querySelector(".nav-links");
 
-    if (menu) {
+    if (menu && nav) {
 
-        menu.onclick = () => {
+        menu.addEventListener("click", () => {
 
             nav.classList.toggle("active");
 
-        };
+            menu.classList.toggle("active");
+
+        });
 
         navLinks.forEach(link => {
 
-            link.onclick = () => {
+            link.addEventListener("click", () => {
 
                 nav.classList.remove("active");
 
-            }
+                menu.classList.remove("active");
+
+            });
 
         });
 
@@ -227,8 +268,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
         window.addEventListener("scroll", () => {
 
-            topBtn.style.opacity =
-                window.scrollY > 500 ? "1" : "0";
+            if (window.scrollY > 500) {
+
+                topBtn.style.opacity = "1";
+                topBtn.style.visibility = "visible";
+
+            } else {
+
+                topBtn.style.opacity = "0";
+                topBtn.style.visibility = "hidden";
+
+            }
+
+        });
+
+        topBtn.addEventListener("click", () => {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
 
         });
 
@@ -240,63 +302,90 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const progressBar = document.getElementById("scroll-progress");
 
-    window.addEventListener("scroll", () => {
+    if (progressBar) {
 
-        if (!progressBar) return;
+        window.addEventListener("scroll", () => {
 
-        const total =
-            document.documentElement.scrollHeight -
-            document.documentElement.clientHeight;
+            const totalHeight =
+                document.documentElement.scrollHeight -
+                document.documentElement.clientHeight;
 
-        const progress =
-            (window.scrollY / total) * 100;
+            const progress =
+                (window.scrollY / totalHeight) * 100;
 
-        progressBar.style.width = progress + "%";
+            progressBar.style.width = progress + "%";
 
-    });
+        });
+
+    }
 
     /*=========================================
-        LIGHTBOX
+        PART 2 STARTS HERE
+        (DO NOT ADD ANYTHING BELOW THIS LINE)
+    =========================================*/
+        /*=========================================
+        CERTIFICATE LIGHTBOX
     =========================================*/
 
-    const cards =
-        document.querySelectorAll(".certificate-card img");
-
-    const lightbox =
-        document.getElementById("certificate-lightbox");
+    const cards = document.querySelectorAll(".certificate-card img");
+    const lightbox = document.getElementById("certificate-lightbox");
 
     if (lightbox) {
 
         const image = lightbox.querySelector("img");
+        const close = document.getElementById("certificate-close");
 
-        const close =
-            document.getElementById("certificate-close");
+        if (image && close) {
 
-        cards.forEach(card => {
+            cards.forEach(card => {
 
-            card.onclick = () => {
+                card.addEventListener("click", () => {
 
-                image.src = card.src;
+                    image.src = card.src;
 
-                lightbox.classList.add("active");
+                    image.alt = card.alt || "Certificate";
 
-            };
+                    lightbox.classList.add("active");
 
-        });
+                    document.body.style.overflow = "hidden";
 
-        close.onclick = () => {
+                });
 
-            lightbox.classList.remove("active");
+            });
 
-        };
-
-        lightbox.onclick = (e) => {
-
-            if (e.target === lightbox)
+            close.addEventListener("click", () => {
 
                 lightbox.classList.remove("active");
 
-        };
+                document.body.style.overflow = "";
+
+            });
+
+            lightbox.addEventListener("click", (e) => {
+
+                if (e.target === lightbox) {
+
+                    lightbox.classList.remove("active");
+
+                    document.body.style.overflow = "";
+
+                }
+
+            });
+
+            document.addEventListener("keydown", (e) => {
+
+                if (e.key === "Escape") {
+
+                    lightbox.classList.remove("active");
+
+                    document.body.style.overflow = "";
+
+                }
+
+            });
+
+        }
 
     }
 
@@ -304,7 +393,7 @@ document.addEventListener("DOMContentLoaded", () => {
         FLOATING PARTICLES
     =========================================*/
 
-    const particleArea = document.body;
+    const particleContainer = document.body;
 
     function createParticle() {
 
@@ -312,17 +401,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         particle.className = "particle";
 
-        particle.style.left =
-            Math.random() * window.innerWidth + "px";
+        particle.style.left = Math.random() * window.innerWidth + "px";
 
-        particle.style.width =
-            particle.style.height =
-            Math.random() * 5 + 3 + "px";
+        const size = Math.random() * 5 + 3;
+
+        particle.style.width = size + "px";
+        particle.style.height = size + "px";
 
         particle.style.animationDuration =
-            Math.random() * 5 + 8 + "s";
+            (Math.random() * 5 + 8) + "s";
 
-        particleArea.appendChild(particle);
+        particle.style.opacity =
+            (Math.random() * 0.5 + 0.2);
+
+        particleContainer.appendChild(particle);
 
         setTimeout(() => {
 
@@ -344,7 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.appendChild(glow);
 
-    document.addEventListener("mousemove", e => {
+    document.addEventListener("mousemove", (e) => {
 
         glow.style.left = e.clientX + "px";
 
@@ -353,16 +445,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /*=========================================
-        CARD TILT
+        CARD TILT EFFECT
     =========================================*/
 
-    document.querySelectorAll(
+    const tiltCards = document.querySelectorAll(
 
         ".skill-card,.achievement-card,.certificate-card,.education-card"
 
-    ).forEach(card => {
+    );
 
-        card.addEventListener("mousemove", e => {
+    tiltCards.forEach(card => {
+
+        card.addEventListener("mousemove", (e) => {
 
             const rect = card.getBoundingClientRect();
 
@@ -370,12 +464,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const y = e.clientY - rect.top;
 
-            const rotateY = (x / rect.width - .5) * 12;
+            const rotateY = ((x / rect.width) - 0.5) * 12;
 
-            const rotateX = (y / rect.height - .5) * -12;
+            const rotateX = ((y / rect.height) - 0.5) * -12;
+
+            card.style.transition = "transform .08s linear";
 
             card.style.transform =
-                `perspective(900px)
+
+                `perspective(1000px)
                  rotateX(${rotateX}deg)
                  rotateY(${rotateY}deg)
                  translateY(-8px)`;
@@ -384,10 +481,69 @@ document.addEventListener("DOMContentLoaded", () => {
 
         card.addEventListener("mouseleave", () => {
 
-            card.style.transform = "";
+            card.style.transition = "transform .35s ease";
+
+            card.style.transform =
+
+                "perspective(1000px) rotateX(0deg) rotateY(0deg)";
 
         });
 
     });
 
+    /*=========================================
+        HERO IMAGE FLOAT
+    =========================================*/
+
+    const heroImage = document.querySelector(".hero-image img");
+
+    if (heroImage) {
+
+        window.addEventListener("mousemove", (e) => {
+
+            const x =
+
+                (window.innerWidth / 2 - e.clientX) / 60;
+
+            const y =
+
+                (window.innerHeight / 2 - e.clientY) / 60;
+
+            heroImage.style.transform =
+
+                `rotateY(${x}deg)
+                 rotateX(${-y}deg)
+                 translateY(-10px)`;
+
+        });
+
+    }
+
+    /*=========================================
+        SMOOTH FADE FOR PAGE
+    =========================================*/
+
+    document.body.classList.add("loaded");
+
+    /*=========================================
+        CONSOLE MESSAGE
+    =========================================*/
+
+    console.log(
+
+        "%cPremium Cybersecurity Portfolio Loaded",
+
+        "color:#00e5ff;font-size:16px;font-weight:bold;"
+
+    );
+
+    console.log(
+
+        "%cDesigned with ❤️ and JavaScript",
+
+        "color:#7dd3fc;font-size:13px;"
+
+    );
+
 });
+                          
