@@ -1,540 +1,392 @@
-// ===============================
-// Smooth Active Navigation
-// ===============================
+/*=========================================================
+    PREMIUM CYBERSECURITY PORTFOLIO
+    SCRIPT.JS
+=========================================================*/
 
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-links a");
+document.addEventListener("DOMContentLoaded", () => {
 
+    /*=========================================
+        BOOT / INTRO SCREEN
+    =========================================*/
 
-window.addEventListener("scroll",()=>{
+    const boot = document.getElementById("boot-screen");
+    const portfolio = document.getElementById("main-content");
+    const progress = document.getElementById("boot-progress");
 
-let current="";
+    if (boot && progress) {
 
+        let value = 0;
 
-sections.forEach(section=>{
+        const loader = setInterval(() => {
 
-const sectionTop=section.offsetTop-120;
+            value++;
 
+            progress.style.width = value + "%";
 
-if(window.scrollY >= sectionTop){
+            if (value >= 100) {
 
-current=section.getAttribute("id");
+                clearInterval(loader);
 
-}
+                setTimeout(() => {
 
-});
+                    boot.classList.add("hide");
 
+                    if (portfolio)
+                        portfolio.classList.remove("hidden");
 
-navLinks.forEach(link=>{
+                }, 800);
 
-link.classList.remove("active");
+            }
 
+        }, 35);
 
-if(link.getAttribute("href")==="#"+current){
+    }
 
-link.classList.add("active");
+    /*=========================================
+        TYPING EFFECT
+    =========================================*/
 
-}
+    const typingElement = document.querySelector(".typing");
 
-});
+    const words = [
 
+        "Cybersecurity Student",
 
-});
+        "Ethical Hacker",
 
+        "Penetration Tester",
 
+        "Security Researcher"
 
+    ];
 
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
 
-// ===============================
-// Reveal Animation
-// ===============================
+    function typeEffect() {
 
+        if (!typingElement) return;
 
-const revealElements=document.querySelectorAll(
-".card,.education-card,.skill-box,.gallery-card,.contact-box,.achievement-card"
-);
+        const current = words[wordIndex];
 
+        if (!deleting) {
 
+            typingElement.textContent =
+                current.substring(0, charIndex++);
 
-revealElements.forEach(element=>{
+            if (charIndex > current.length) {
 
-element.style.opacity="0";
+                deleting = true;
 
-element.style.transform="translateY(40px)";
+                setTimeout(typeEffect, 1500);
 
-element.style.transition=".7s ease";
-
-});
-
-
-
-function reveal(){
-
-
-revealElements.forEach(element=>{
-
-
-const position=
-element.getBoundingClientRect().top;
-
-
-if(position < window.innerHeight-120){
-
-
-element.style.opacity="1";
-
-element.style.transform="translateY(0)";
-
-
-}
-
-
-});
-
-
-}
-
-
-
-window.addEventListener("scroll",reveal);
-
-window.addEventListener("load",reveal);
-
-
-
-
-
-
-
-
-// ===============================
-// Scroll Top Button
-// ===============================
-
-
-const topButton=document.createElement("button");
-
-
-topButton.innerHTML="↑";
-
-topButton.id="topButton";
-
-
-document.body.appendChild(topButton);
-
-
-
-Object.assign(topButton.style,{
-
-position:"fixed",
-
-bottom:"25px",
-
-right:"25px",
-
-width:"50px",
-
-height:"50px",
-
-border:"none",
-
-borderRadius:"50%",
-
-background:"#ff2b2b",
-
-color:"white",
-
-fontSize:"22px",
-
-cursor:"pointer",
-
-display:"none",
-
-boxShadow:"0 0 25px #ff2b2b",
-
-zIndex:"999"
-
-});
-
-
-
-
-window.addEventListener("scroll",()=>{
-
-
-topButton.style.display =
-window.scrollY>350 ?
-"block":"none";
-
-
-});
-
-
-
-topButton.onclick=()=>{
-
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-
-};
-
-
-
-
-
-
-
-// ===============================
-// Auto Hide Navbar
-// ===============================
-
-
-let lastScroll=0;
-
-const header=document.querySelector("header");
-
-
-window.addEventListener("scroll",()=>{
-
-
-let currentScroll=window.scrollY;
-
-
-
-if(currentScroll>lastScroll && currentScroll>100){
-
-header.style.top="-120px";
-
-}
-
-else{
-
-header.style.top="0";
-
-}
-
-
-
-lastScroll=currentScroll;
-
-
-});
-
-
-
-
-
-
-
-
-
-// ===============================
-// MATRIX CYBER BACKGROUND
-// ===============================
-
-
-const canvas=document.getElementById("matrix");
-
-
-if(canvas){
-
-
-const ctx=canvas.getContext("2d");
-
-
-const fontSize=18;
-
-
-let columns;
-
-let drops=[];
-
-
-
-function resizeCanvas(){
-
-
-canvas.width=window.innerWidth;
-
-canvas.height=window.innerHeight;
-
-
-
-columns=Math.floor(
-canvas.width/fontSize
-);
-
-
-
-drops=[];
-
-
-
-for(let i=0;i<columns;i++){
-
-drops[i]=Math.random()*-100;
-
-}
-
-
-}
-
-
-
-resizeCanvas();
-
-
-window.addEventListener(
-"resize",
-resizeCanvas
-);
-
-
-
-
-function draw(){
-
-
-ctx.fillStyle=
-"rgba(13,17,23,0.08)";
-
-
-ctx.fillRect(
-0,
-0,
-canvas.width,
-canvas.height
-);
-
-
-
-ctx.fillStyle="#ff2b2b";
-
-
-ctx.font=
-fontSize+"px monospace";
-
-
-
-for(let i=0;i<drops.length;i++){
-
-
-
-let text=
-Math.random()>0.5?"1":"0";
-
-
-
-ctx.fillText(
-
-text,
-
-i*fontSize,
-
-drops[i]*fontSize
-
-);
-
-
-
-if(
-drops[i]*fontSize >
-canvas.height
-){
-
-drops[i]=0;
-
-}
-
-
-
-drops[i]+=1;
-
-}
-
-
-
-requestAnimationFrame(draw);
-
-
-}
-
-
-
-draw();
-
-
-}
-
-
-
-
-
-
-
-
-
-// ===============================
-// CERTIFICATE + PRIZE LIGHTBOX
-// ===============================
-
-
-const popupImages=document.querySelectorAll(
-
-".gallery-card img, .prize-card img"
-
-);
-
-
-
-const lightbox=
-document.getElementById("lightbox");
-
-
-const lightboxImg=
-document.getElementById("lightbox-img");
-
-
-const closeLightbox=
-document.getElementById("closeLightbox");
-
-
-
-
-popupImages.forEach(img=>{
-
-
-img.addEventListener("click",()=>{
-
-
-lightbox.style.display="flex";
-
-
-lightboxImg.src=img.src;
-
-
-document.body.style.overflow="hidden";
-
-
-});
-
-
-});
-
-
-
-
-
-
-closeLightbox.onclick=()=>{
-
-
-lightbox.style.display="none";
-
-
-document.body.style.overflow="auto";
-
-
-};
-
-
-
-
-
-
-lightbox.onclick=(e)=>{
-
-
-if(e.target===lightbox){
-
-
-lightbox.style.display="none";
-
-
-document.body.style.overflow="auto";
-
-
-}
-
-
-};
-
-
-
-
-
-
-document.addEventListener("keydown",(e)=>{
-
-
-if(e.key==="Escape"){
-
-
-lightbox.style.display="none";
-
-
-document.body.style.overflow="auto";
-
-
-}
-
-
-});
-
-
-
-
-
-
-
-
-// ===============================
-// Console Message
-// ===============================
-
-
-console.log(
-"%cWelcome to HARISRAJ G Portfolio",
-"color:#ff2b2b;font-size:18px;font-weight:bold;"
-);
-document.addEventListener("DOMContentLoaded", function () {
-
-    const unlockBtn = document.getElementById("unlockBtn");
-    const passwordBox = document.getElementById("vaultPassword");
-    const message = document.getElementById("vaultMessage");
-
-    const answer = "HTTPS";
-
-    unlockBtn.addEventListener("click", function () {
-
-        const entered = passwordBox.value.trim().toUpperCase();
-
-        if (entered === answer) {
-
-            message.style.color = "#00ff66";
-            message.innerHTML = "✔ ACCESS GRANTED";
-
-            setTimeout(function () {
-
-                document.getElementById("vault").style.display = "none";
-                document.getElementById("portfolioContent").style.display = "block";
-
-            }, 1200);
+                return;
+            }
 
         } else {
 
-            message.style.color = "#ff2b2b";
-            message.innerHTML =
-            "🚫 ACCESS DENIED<br>Sorry! Secure Vault Locked.";
+            typingElement.textContent =
+                current.substring(0, charIndex--);
+
+            if (charIndex < 0) {
+
+                deleting = false;
+
+                wordIndex++;
+
+                if (wordIndex >= words.length)
+                    wordIndex = 0;
+            }
 
         }
+
+        setTimeout(typeEffect, deleting ? 40 : 90);
+
+    }
+
+    typeEffect();
+
+    /*=========================================
+        SCROLL REVEAL
+    =========================================*/
+
+    const revealItems = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("active");
+
+            }
+
+        });
+
+    }, {
+        threshold: .15
+    });
+
+    revealItems.forEach(item => observer.observe(item));
+
+    /*=========================================
+        ACTIVE NAVIGATION
+    =========================================*/
+
+    const sections = document.querySelectorAll("section");
+
+    const navLinks = document.querySelectorAll(".nav-links a");
+
+    window.addEventListener("scroll", () => {
+
+        let current = "";
+
+        sections.forEach(sec => {
+
+            const top = window.scrollY;
+
+            const offset = sec.offsetTop - 150;
+
+            const height = sec.offsetHeight;
+
+            if (top >= offset && top < offset + height) {
+
+                current = sec.getAttribute("id");
+
+            }
+
+        });
+
+        navLinks.forEach(link => {
+
+            link.classList.remove("active");
+
+            if (link.getAttribute("href") === "#" + current)
+
+                link.classList.add("active");
+
+        });
+
+    });
+
+    /*=========================================
+        NAVBAR BLUR
+    =========================================*/
+
+    const header = document.querySelector("header");
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 80)
+
+            header.classList.add("scrolled");
+
+        else
+
+            header.classList.remove("scrolled");
+
+    });
+
+    /*=========================================
+        MOBILE MENU
+    =========================================*/
+
+    const menu = document.querySelector(".menu-toggle");
+
+    const nav = document.querySelector(".nav-links");
+
+    if (menu) {
+
+        menu.onclick = () => {
+
+            nav.classList.toggle("active");
+
+        };
+
+        navLinks.forEach(link => {
+
+            link.onclick = () => {
+
+                nav.classList.remove("active");
+
+            }
+
+        });
+
+    }
+
+    /*=========================================
+        BACK TO TOP
+    =========================================*/
+
+    const topBtn = document.querySelector(".back-to-top");
+
+    if (topBtn) {
+
+        window.addEventListener("scroll", () => {
+
+            topBtn.style.opacity =
+                window.scrollY > 500 ? "1" : "0";
+
+        });
+
+    }
+
+    /*=========================================
+        SCROLL PROGRESS BAR
+    =========================================*/
+
+    const progressBar = document.getElementById("scroll-progress");
+
+    window.addEventListener("scroll", () => {
+
+        if (!progressBar) return;
+
+        const total =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+
+        const progress =
+            (window.scrollY / total) * 100;
+
+        progressBar.style.width = progress + "%";
+
+    });
+
+    /*=========================================
+        LIGHTBOX
+    =========================================*/
+
+    const cards =
+        document.querySelectorAll(".certificate-card img");
+
+    const lightbox =
+        document.getElementById("certificate-lightbox");
+
+    if (lightbox) {
+
+        const image = lightbox.querySelector("img");
+
+        const close =
+            document.getElementById("certificate-close");
+
+        cards.forEach(card => {
+
+            card.onclick = () => {
+
+                image.src = card.src;
+
+                lightbox.classList.add("active");
+
+            };
+
+        });
+
+        close.onclick = () => {
+
+            lightbox.classList.remove("active");
+
+        };
+
+        lightbox.onclick = (e) => {
+
+            if (e.target === lightbox)
+
+                lightbox.classList.remove("active");
+
+        };
+
+    }
+
+    /*=========================================
+        FLOATING PARTICLES
+    =========================================*/
+
+    const particleArea = document.body;
+
+    function createParticle() {
+
+        const particle = document.createElement("span");
+
+        particle.className = "particle";
+
+        particle.style.left =
+            Math.random() * window.innerWidth + "px";
+
+        particle.style.width =
+            particle.style.height =
+            Math.random() * 5 + 3 + "px";
+
+        particle.style.animationDuration =
+            Math.random() * 5 + 8 + "s";
+
+        particleArea.appendChild(particle);
+
+        setTimeout(() => {
+
+            particle.remove();
+
+        }, 14000);
+
+    }
+
+    setInterval(createParticle, 600);
+
+    /*=========================================
+        CURSOR GLOW
+    =========================================*/
+
+    const glow = document.createElement("div");
+
+    glow.className = "cursor-glow";
+
+    document.body.appendChild(glow);
+
+    document.addEventListener("mousemove", e => {
+
+        glow.style.left = e.clientX + "px";
+
+        glow.style.top = e.clientY + "px";
+
+    });
+
+    /*=========================================
+        CARD TILT
+    =========================================*/
+
+    document.querySelectorAll(
+
+        ".skill-card,.achievement-card,.certificate-card,.education-card"
+
+    ).forEach(card => {
+
+        card.addEventListener("mousemove", e => {
+
+            const rect = card.getBoundingClientRect();
+
+            const x = e.clientX - rect.left;
+
+            const y = e.clientY - rect.top;
+
+            const rotateY = (x / rect.width - .5) * 12;
+
+            const rotateX = (y / rect.height - .5) * -12;
+
+            card.style.transform =
+                `perspective(900px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)
+                 translateY(-8px)`;
+
+        });
+
+        card.addEventListener("mouseleave", () => {
+
+            card.style.transform = "";
+
+        });
 
     });
 
