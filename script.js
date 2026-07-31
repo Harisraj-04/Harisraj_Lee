@@ -444,12 +444,9 @@ if (lightbox) {
         CARD TILT EFFECT
     =========================================*/
 
-    const tiltCards = document.querySelectorAll(
-
-        ".skill-card,.achievement-card,.certificate-card,.education-card"
-
-    );
-
+   const tiltCards = document.querySelectorAll(
+    ".skill-box, .achievement-card, .gallery-card, .education-card, .glass-card, .prize-card"
+);
     tiltCards.forEach(card => {
 
         card.addEventListener("mousemove", (e) => {
