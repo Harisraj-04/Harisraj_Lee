@@ -262,7 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
         BACK TO TOP
     =========================================*/
 
-    const topBtn = document.querySelector(".back-to-top");
+    const topBtn = document.getElementById("topButton");
 
     if (topBtn) {
 
