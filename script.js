@@ -9,10 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
         BOOT / INTRO SCREEN
     =========================================*/
 
-    const boot = document.getElementById("boot-screen");
-    const portfolio = document.getElementById("main-content");
-    const progress = document.getElementById("boot-progress");
-
     if (boot && progress) {
 
         let value = 0;
@@ -327,15 +323,15 @@ document.addEventListener("DOMContentLoaded", () => {
         CERTIFICATE LIGHTBOX
     =========================================*/
 
-    const cards = document.querySelectorAll(".certificate-card img");
-    const lightbox = document.getElementById("certificate-lightbox");
+  const cards = document.querySelectorAll(".gallery-card img");
+const lightbox = document.getElementById("lightbox");
 
-    if (lightbox) {
+if (lightbox) {
 
-        const image = lightbox.querySelector("img");
-        const close = document.getElementById("certificate-close");
+    const image = document.getElementById("lightbox-img");
+    const close = document.getElementById("closeLightbox");
 
-        if (image && close) {
+    if (image && close) {
 
             cards.forEach(card => {
 
