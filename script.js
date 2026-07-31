@@ -1,542 +1,541 @@
-/*=========================================================
-    PREMIUM CYBERSECURITY PORTFOLIO
-    SCRIPT.JS (PART 1)
-=========================================================*/
+// ===============================
+// Smooth Active Navigation
+// ===============================
 
-document.addEventListener("DOMContentLoaded", () => {
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-links a");
 
-    /*=========================================
-        BOOT / INTRO SCREEN
-    =========================================*/
 
-    if (boot && progress) {
+window.addEventListener("scroll",()=>{
 
-        let value = 0;
+let current="";
 
-        const loader = setInterval(() => {
 
-            value++;
+sections.forEach(section=>{
 
-            progress.style.width = value + "%";
+const sectionTop=section.offsetTop-120;
 
-            const percentage = document.getElementById("boot-percentage");
 
-            if (percentage)
-                percentage.textContent = value + "%";
+if(window.scrollY >= sectionTop){
 
-            if (value >= 100) {
+current=section.getAttribute("id");
 
-                clearInterval(loader);
+}
 
-                setTimeout(() => {
+});
 
-                    boot.classList.add("hide");
 
-                    if (portfolio)
-                        portfolio.classList.remove("hidden");
+navLinks.forEach(link=>{
 
-                }, 800);
+link.classList.remove("active");
 
-            }
 
-        }, 35);
+if(link.getAttribute("href")==="#"+current){
 
-    } else {
+link.classList.add("active");
 
-        console.warn("Boot screen elements not found.");
+}
 
-    }
+});
 
-    /*=========================================
-        TYPING EFFECT
-    =========================================*/
 
-    const typingElement = document.querySelector(".typing");
+});
 
-    const words = [
 
-        "Cybersecurity Student",
 
-        "Ethical Hacker",
 
-        "Penetration Tester",
 
-        "Security Researcher"
+// ===============================
+// Reveal Animation
+// ===============================
 
-    ];
 
-    let wordIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
+const revealElements=document.querySelectorAll(
+".card,.education-card,.skill-box,.gallery-card,.contact-box,.achievement-card"
+);
 
-    function typeEffect() {
 
-        if (!typingElement) return;
 
-        const current = words[wordIndex];
+revealElements.forEach(element=>{
 
-        if (!deleting) {
+element.style.opacity="0";
 
-            typingElement.textContent =
-                current.substring(0, charIndex++);
+element.style.transform="translateY(40px)";
 
-            if (charIndex > current.length) {
+element.style.transition=".7s ease";
 
-                deleting = true;
+});
 
-                setTimeout(typeEffect, 1500);
 
-                return;
 
-            }
+function reveal(){
+
+
+revealElements.forEach(element=>{
+
+
+const position=
+element.getBoundingClientRect().top;
+
+
+if(position < window.innerHeight-120){
+
+
+element.style.opacity="1";
+
+element.style.transform="translateY(0)";
+
+
+}
+
+
+});
+
+
+}
+
+
+
+window.addEventListener("scroll",reveal);
+
+window.addEventListener("load",reveal);
+
+
+
+
+
+
+
+
+// ===============================
+// Scroll Top Button
+// ===============================
+
+
+const topButton=document.createElement("button");
+
+
+topButton.innerHTML="↑";
+
+topButton.id="topButton";
+
+
+document.body.appendChild(topButton);
+
+
+
+Object.assign(topButton.style,{
+
+position:"fixed",
+
+bottom:"25px",
+
+right:"25px",
+
+width:"50px",
+
+height:"50px",
+
+border:"none",
+
+borderRadius:"50%",
+
+background:"#ff2b2b",
+
+color:"white",
+
+fontSize:"22px",
+
+cursor:"pointer",
+
+display:"none",
+
+boxShadow:"0 0 25px #ff2b2b",
+
+zIndex:"999"
+
+});
+
+
+
+
+window.addEventListener("scroll",()=>{
+
+
+topButton.style.display =
+window.scrollY>350 ?
+"block":"none";
+
+
+});
+
+
+
+topButton.onclick=()=>{
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+
+};
+
+
+
+
+
+
+
+// ===============================
+// Auto Hide Navbar
+// ===============================
+
+
+let lastScroll=0;
+
+const header=document.querySelector("header");
+
+
+window.addEventListener("scroll",()=>{
+
+
+let currentScroll=window.scrollY;
+
+
+
+if(currentScroll>lastScroll && currentScroll>100){
+
+header.style.top="-120px";
+
+}
+
+else{
+
+header.style.top="0";
+
+}
+
+
+
+lastScroll=currentScroll;
+
+
+});
+
+
+
+
+
+
+
+
+
+// ===============================
+// MATRIX CYBER BACKGROUND
+// ===============================
+
+
+const canvas=document.getElementById("matrix");
+
+
+if(canvas){
+
+
+const ctx=canvas.getContext("2d");
+
+
+const fontSize=18;
+
+
+let columns;
+
+let drops=[];
+
+
+
+function resizeCanvas(){
+
+
+canvas.width=window.innerWidth;
+
+canvas.height=window.innerHeight;
+
+
+
+columns=Math.floor(
+canvas.width/fontSize
+);
+
+
+
+drops=[];
+
+
+
+for(let i=0;i<columns;i++){
+
+drops[i]=Math.random()*-100;
+
+}
+
+
+}
+
+
+
+resizeCanvas();
+
+
+window.addEventListener(
+"resize",
+resizeCanvas
+);
+
+
+
+
+function draw(){
+
+
+ctx.fillStyle=
+"rgba(13,17,23,0.08)";
+
+
+ctx.fillRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+
+
+ctx.fillStyle="#ff2b2b";
+
+
+ctx.font=
+fontSize+"px monospace";
+
+
+
+for(let i=0;i<drops.length;i++){
+
+
+
+let text=
+Math.random()>0.5?"1":"0";
+
+
+
+ctx.fillText(
+
+text,
+
+i*fontSize,
+
+drops[i]*fontSize
+
+);
+
+
+
+if(
+drops[i]*fontSize >
+canvas.height
+){
+
+drops[i]=0;
+
+}
+
+
+
+drops[i]+=1;
+
+}
+
+
+
+requestAnimationFrame(draw);
+
+
+}
+
+
+
+draw();
+
+
+}
+
+
+
+
+
+
+
+
+
+// ===============================
+// CERTIFICATE + PRIZE LIGHTBOX
+// ===============================
+
+
+const popupImages=document.querySelectorAll(
+
+".gallery-card img, .prize-card img"
+
+);
+
+
+
+const lightbox=
+document.getElementById("lightbox");
+
+
+const lightboxImg=
+document.getElementById("lightbox-img");
+
+
+const closeLightbox=
+document.getElementById("closeLightbox");
+
+
+
+
+popupImages.forEach(img=>{
+
+
+img.addEventListener("click",()=>{
+
+
+lightbox.style.display="flex";
+
+
+lightboxImg.src=img.src;
+
+
+document.body.style.overflow="hidden";
+
+
+});
+
+
+});
+
+
+
+
+
+
+closeLightbox.onclick=()=>{
+
+
+lightbox.style.display="none";
+
+
+document.body.style.overflow="auto";
+
+
+};
+
+
+
+
+
+
+lightbox.onclick=(e)=>{
+
+
+if(e.target===lightbox){
+
+
+lightbox.style.display="none";
+
+
+document.body.style.overflow="auto";
+
+
+}
+
+
+};
+
+
+
+
+
+
+document.addEventListener("keydown",(e)=>{
+
+
+if(e.key==="Escape"){
+
+
+lightbox.style.display="none";
+
+
+document.body.style.overflow="auto";
+
+
+}
+
+
+});
+
+
+
+
+
+
+
+
+// ===============================
+// Console Message
+// ===============================
+
+
+console.log(
+"%cWelcome to HARISRAJ G Portfolio",
+"color:#ff2b2b;font-size:18px;font-weight:bold;"
+);
+document.addEventListener("DOMContentLoaded", function () {
+
+    const unlockBtn = document.getElementById("unlockBtn");
+    const passwordBox = document.getElementById("vaultPassword");
+    const message = document.getElementById("vaultMessage");
+
+    const answer = "HTTPS";
+
+    unlockBtn.addEventListener("click", function () {
+
+        const entered = passwordBox.value.trim().toUpperCase();
+
+        if (entered === answer) {
+
+            message.style.color = "#00ff66";
+            message.innerHTML = "✔ ACCESS GRANTED";
+
+            setTimeout(function () {
+
+                document.getElementById("vault").style.display = "none";
+                document.getElementById("portfolioContent").style.display = "block";
+
+            }, 1200);
 
         } else {
 
-            typingElement.textContent =
-                current.substring(0, charIndex--);
-
-            if (charIndex < 0) {
-
-                deleting = false;
-
-                wordIndex++;
-
-                if (wordIndex >= words.length)
-                    wordIndex = 0;
-
-            }
+            message.style.color = "#ff2b2b";
+            message.innerHTML =
+            "🚫 ACCESS DENIED<br>Sorry! Secure Vault Locked.";
 
         }
 
-        setTimeout(typeEffect, deleting ? 40 : 90);
-
-    }
-
-    typeEffect();
-
-    /*=========================================
-        SCROLL REVEAL
-    =========================================*/
-
-    const revealItems = document.querySelectorAll(".reveal");
-
-    if ("IntersectionObserver" in window) {
-
-        const observer = new IntersectionObserver((entries) => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("active");
-
-                    observer.unobserve(entry.target);
-
-                }
-
-            });
-
-        }, {
-            threshold: 0.15
-        });
-
-        revealItems.forEach(item => observer.observe(item));
-
-    } else {
-
-        revealItems.forEach(item => {
-
-            item.classList.add("active");
-
-        });
-
-    }
-
-    /*=========================================
-        ACTIVE NAVIGATION
-    =========================================*/
-
-    const sections = document.querySelectorAll("section");
-
-    const navLinks = document.querySelectorAll(".nav-links a");
-
-    if (sections.length && navLinks.length) {
-
-        window.addEventListener("scroll", () => {
-
-            let current = "";
-
-            sections.forEach(section => {
-
-                const offset = section.offsetTop - 140;
-                const height = section.offsetHeight;
-
-                if (
-                    window.scrollY >= offset &&
-                    window.scrollY < offset + height
-                ) {
-
-                    current = section.id;
-
-                }
-
-            });
-
-            navLinks.forEach(link => {
-
-                link.classList.remove("active");
-
-                if (link.getAttribute("href") === "#" + current) {
-
-                    link.classList.add("active");
-
-                }
-
-            });
-
-        });
-
-    }
-
-    /*=========================================
-        NAVBAR BLUR
-    =========================================*/
-
-    const header = document.querySelector("header");
-
-    if (header) {
-
-        window.addEventListener("scroll", () => {
-
-            if (window.scrollY > 80) {
-
-                header.classList.add("scrolled");
-
-            } else {
-
-                header.classList.remove("scrolled");
-
-            }
-
-        });
-
-    }
-
-    /*=========================================
-        MOBILE MENU
-    =========================================*/
-
-    const menu = document.querySelector(".menu-toggle");
-
-    const nav = document.querySelector(".nav-links");
-
-    if (menu && nav) {
-
-        menu.addEventListener("click", () => {
-
-            nav.classList.toggle("active");
-
-            menu.classList.toggle("active");
-
-        });
-
-        navLinks.forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                nav.classList.remove("active");
-
-                menu.classList.remove("active");
-
-            });
-
-        });
-
-    }
-
-    /*=========================================
-        BACK TO TOP
-    =========================================*/
-
-    const topBtn = document.getElementById("topButton");
-
-    if (topBtn) {
-
-        window.addEventListener("scroll", () => {
-
-            if (window.scrollY > 500) {
-
-                topBtn.style.opacity = "1";
-                topBtn.style.visibility = "visible";
-
-            } else {
-
-                topBtn.style.opacity = "0";
-                topBtn.style.visibility = "hidden";
-
-            }
-
-        });
-
-        topBtn.addEventListener("click", () => {
-
-            window.scrollTo({
-
-                top: 0,
-
-                behavior: "smooth"
-
-            });
-
-        });
-
-    }
-
-    /*=========================================
-        SCROLL PROGRESS BAR
-    =========================================*/
-
-    const progressBar = document.getElementById("scroll-progress");
-
-    if (progressBar) {
-
-        window.addEventListener("scroll", () => {
-
-            const totalHeight =
-                document.documentElement.scrollHeight -
-                document.documentElement.clientHeight;
-
-            const progress =
-                (window.scrollY / totalHeight) * 100;
-
-            progressBar.style.width = progress + "%";
-
-        });
-
-    }
-
-    /*=========================================
-        PART 2 STARTS HERE
-        (DO NOT ADD ANYTHING BELOW THIS LINE)
-    =========================================*/
-        /*=========================================
-        CERTIFICATE LIGHTBOX
-    =========================================*/
-
-  const cards = document.querySelectorAll(".gallery-card img");
-const lightbox = document.getElementById("lightbox");
-
-if (lightbox) {
-
-    const image = document.getElementById("lightbox-img");
-    const close = document.getElementById("closeLightbox");
-
-    if (image && close) {
-
-            cards.forEach(card => {
-
-                card.addEventListener("click", () => {
-
-                    image.src = card.src;
-
-                    image.alt = card.alt || "Certificate";
-
-                    lightbox.classList.add("active");
-
-                    document.body.style.overflow = "hidden";
-
-                });
-
-            });
-
-            close.addEventListener("click", () => {
-
-                lightbox.classList.remove("active");
-
-                document.body.style.overflow = "";
-
-            });
-
-            lightbox.addEventListener("click", (e) => {
-
-                if (e.target === lightbox) {
-
-                    lightbox.classList.remove("active");
-
-                    document.body.style.overflow = "";
-
-                }
-
-            });
-
-            document.addEventListener("keydown", (e) => {
-
-                if (e.key === "Escape") {
-
-                    lightbox.classList.remove("active");
-
-                    document.body.style.overflow = "";
-
-                }
-
-            });
-
-        }
-
-    }
-
-    /*=========================================
-        FLOATING PARTICLES
-    =========================================*/
-
-    const particleContainer = document.body;
-
-    function createParticle() {
-
-        const particle = document.createElement("span");
-
-        particle.className = "particle";
-
-        particle.style.left = Math.random() * window.innerWidth + "px";
-
-        const size = Math.random() * 5 + 3;
-
-        particle.style.width = size + "px";
-        particle.style.height = size + "px";
-
-        particle.style.animationDuration =
-            (Math.random() * 5 + 8) + "s";
-
-        particle.style.opacity =
-            (Math.random() * 0.5 + 0.2);
-
-        particleContainer.appendChild(particle);
-
-        setTimeout(() => {
-
-            particle.remove();
-
-        }, 14000);
-
-    }
-
-    setInterval(createParticle, 600);
-
-    /*=========================================
-        CURSOR GLOW
-    =========================================*/
-
-    const glow = document.createElement("div");
-
-    glow.className = "cursor-glow";
-
-    document.body.appendChild(glow);
-
-    document.addEventListener("mousemove", (e) => {
-
-        glow.style.left = e.clientX + "px";
-
-        glow.style.top = e.clientY + "px";
-
     });
-
-    /*=========================================
-        CARD TILT EFFECT
-    =========================================*/
-
-   const tiltCards = document.querySelectorAll(
-    ".skill-box, .achievement-card, .gallery-card, .education-card, .glass-card, .prize-card"
-);
-    tiltCards.forEach(card => {
-
-        card.addEventListener("mousemove", (e) => {
-
-            const rect = card.getBoundingClientRect();
-
-            const x = e.clientX - rect.left;
-
-            const y = e.clientY - rect.top;
-
-            const rotateY = ((x / rect.width) - 0.5) * 12;
-
-            const rotateX = ((y / rect.height) - 0.5) * -12;
-
-            card.style.transition = "transform .08s linear";
-
-            card.style.transform =
-
-                `perspective(1000px)
-                 rotateX(${rotateX}deg)
-                 rotateY(${rotateY}deg)
-                 translateY(-8px)`;
-
-        });
-
-        card.addEventListener("mouseleave", () => {
-
-            card.style.transition = "transform .35s ease";
-
-            card.style.transform =
-
-                "perspective(1000px) rotateX(0deg) rotateY(0deg)";
-
-        });
-
-    });
-
-    /*=========================================
-        HERO IMAGE FLOAT
-    =========================================*/
-
-    const heroImage = document.querySelector(".hero-image img");
-
-    if (heroImage) {
-
-        window.addEventListener("mousemove", (e) => {
-
-            const x =
-
-                (window.innerWidth / 2 - e.clientX) / 60;
-
-            const y =
-
-                (window.innerHeight / 2 - e.clientY) / 60;
-
-            heroImage.style.transform =
-
-                `rotateY(${x}deg)
-                 rotateX(${-y}deg)
-                 translateY(-10px)`;
-
-        });
-
-    }
-
-    /*=========================================
-        SMOOTH FADE FOR PAGE
-    =========================================*/
-
-    document.body.classList.add("loaded");
-
-    /*=========================================
-        CONSOLE MESSAGE
-    =========================================*/
-
-    console.log(
-
-        "%cPremium Cybersecurity Portfolio Loaded",
-
-        "color:#00e5ff;font-size:16px;font-weight:bold;"
-
-    );
-
-    console.log(
-
-        "%cDesigned with ❤️ and JavaScript",
-
-        "color:#7dd3fc;font-size:13px;"
-
-    );
 
 });
-                          
